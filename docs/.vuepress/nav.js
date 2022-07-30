@@ -2,7 +2,7 @@ module.exports = [
   {text: '首页', link: '/'},
   {
     text: 'Java', items: [
-      {text: '后端开发(Java)', link: '/后端开发/通用/'},
+      {text: '后端开发(Java)', link: '/后端开发/通用/java增效系列'},
       {text: 'Redis专栏', link: '/后端开发/Redis/'},
     ]
   },
