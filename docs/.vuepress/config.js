@@ -11,6 +11,7 @@ module.exports = {
     author: 'cv大魔王',
     lastUpdated: '上次更新',
     type: 'blog',
+    base: "./",
     authorAvatar: 'https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/image-20220731204655849.png',
     logo: "https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png",
     nav: require('./nav.js'),
