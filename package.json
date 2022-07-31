@@ -4,10 +4,16 @@
     "@vuepress/plugin-active-header-links": "^1.9.7",
     "@vuepress/plugin-back-to-top": "^1.9.7",
     "@vuepress/plugin-search": "^1.9.7",
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "leancloud-storage": "^4.13.1",
+    "valine": "^1.5.1",
+    "vuepress-plugin-comment": "^0.7.3"
   }
 }

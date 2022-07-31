@@ -5,13 +5,13 @@ heroText: 星空小屋
 tagline: 记录成长，探索未来，持续学习
 actionText: 开始探索 →
 actionLink: /后端开发/通用/java增效系列
-action: # (可选)
+action:
 - text: '开始探索 →'
-  link: '/后端开发/通用/java增效系列'
+  link: /后端开发/通用/java增效系列
 features:
 - title: Java
   desc: 记录Java后端开发技巧、面试题等，包含基础部分和框架的使用
-  link: '/后端开发/通用/java增效系列'
+  link: /后端开发/通用/java增效系列
 - title: 前端开发
   desc: 以vue为核心，包括但不限于使用技巧、UI框架、TS、Vite、Uniapp等
 - title: 数据库

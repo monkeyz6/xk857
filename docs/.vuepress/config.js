@@ -4,8 +4,10 @@ module.exports = {
   head: [
     ['link', {rel: 'icon', href: 'https://gzfhsw.oss-cn-guangzhou.aliyuncs.com/typora/2022/07/logo.png'}]
   ],
+
   theme: '@qcyblm/vpx',
   themeConfig: {
+    lastUpdated: '上次更新',
     logo: "https://gzfhsw.oss-cn-guangzhou.aliyuncs.com/typora/2022/07/logo.png",
     nav: require('./nav.js'),
     sidebar: require('./sidebar.js'),
@@ -18,13 +20,10 @@ module.exports = {
       beian: '皖ICP备20012269号-1', // ICP 备号
     }
   },
-  plugins: ['@vuepress/active-header-links', {
-    sidebarLinkSelector: '.sidebar-link',
-    headerAnchorSelector: '.header-anchor'
-  },
+  plugins: [
+    '@vuepress/active-header-links', {sidebarLinkSelector: '.sidebar-link', headerAnchorSelector: '.header-anchor'},
     '@vuepress/back-to-top',
-    ['@vuepress/search', {
-      searchMaxSuggestions: 10
-    }]
+    '@vuepress/last-updated',
+    '@vuepress/search', {searchMaxSuggestions: 10},
   ]
 }
