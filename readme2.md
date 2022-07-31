@@ -1,10 +1,5 @@
 ---
-home: true
-heroImage: https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png
 heroText: 星空小屋
-bgImageStyle: {
-  height: '400px'
-}
 tagline: 记录成长，探索未来，持续学习
 actionText: 开始探索 →
 actionLink: /后端开发/java/java高效编程常用技术优化手段/资源关闭优化方案
@@ -21,5 +16,4 @@ features:
   details: Jetbrains公司的开发软件例如IDEA的插件开发常用API
 - title: Spring专栏
   details: Spring家族常用开发技巧，尤其是SpringBoot的开发技巧，以及底层源码、面试题等
-
 ---
