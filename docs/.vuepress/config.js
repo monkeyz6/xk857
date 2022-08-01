@@ -24,6 +24,7 @@ module.exports = {
     recordLink: 'https://beian.miit.gov.cn/#/Integrated/index',
     // 项目开始时间，只填写年份
     startYear: '2020',
+    loading: '',
     valineConfig: {
       appId: 'UdAhhnSzFfnsBzA22zoT6BaF-gzGzoHsz',// your appId
       appKey: 'z3p2CHOsy3LCfqJqpzrWQtPN', // your appKey
@@ -34,6 +35,7 @@ module.exports = {
     '@vuepress/back-to-top',
     '@vuepress/last-updated',
     '@vuepress/search', {searchMaxSuggestions: 10},
+    '@vuepress-reco/extract-code',
     ['@vuepress/last-updated', {
       transformer: (timestamp) => {
         // 不要忘了安装 moment
