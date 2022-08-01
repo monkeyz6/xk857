@@ -9,11 +9,12 @@ tags:
 - 中间件
 ---
 
+
+什么是延迟消息？Producer将消息发送到消息队列 RocketMQ 服务端，但并不期望这条消息立马投递，而是推迟到在当前时间点之后的某一个时间投递到 Consumer 进行消费，该消息即定时消息，目前支持固定精度的消息。
+<!-- more -->
+
 ::: tip
-什么是延迟消息：
-- Producer 将消息发送到消息队列 RocketMQ 服务端，但并不期望这条消息立马投递，而是推迟到在当前时间点之后的某一个时间投递到 Consumer 进行消费，该消息即定时消息，目前支持固定精度的消息
-- 源码：rocketmq-store > MessageStoreConfig.java 属性 messageDelayLevel
-  `"1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h";`
+- 源码：rocketmq-store > MessageStoreConfig.java 属性 messageDelayLevel `"1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h";`
 - 使用message.setDelayTimeLevel(xxx) //xxx是级别，1表示配置里面的第一个级别，2表示第二个级别
 :::
 

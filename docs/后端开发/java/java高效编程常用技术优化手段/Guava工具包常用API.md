@@ -1,6 +1,6 @@
 ---
-title: 拯救垃圾代码使用Guava工具类
-date: '2021-08-02'
+title: Guava工具包常用API
+date: 2021-08-02
 categories:
 - java
 - 后端开发技巧
@@ -9,6 +9,10 @@ tags:
 - jdk新特性
 - 后端开发技巧
 ---
+
+Guava 是一套来自 Google 的核心 Java 库，其中包括新的集合类型（如 multimap 和 multiset）、不可变的集合、图库，以及并发、I/O、散列、缓存、基元、字符串等实用工具！它被广泛用于 Google 内部的大多数 Java 项目，也被许多其他公司广泛使用。它被广泛用于 Google 内部的大多数 Java 项目，也被许多其他公司广泛使用。
+最为重要的是它能帮助我们拯救垃圾代码，guava内部使用的API都是经过处理优化的，背靠Google公司，因此我们可以放心大胆的使用它。
+<!-- more -->
 
 ::: tip
 使用前请先引用依赖

@@ -9,6 +9,8 @@ tags:
 - 中间件
 ---
 
+RocketMQ通过源码的方式安装，在centos7中依次安装JDK8、Maven、RocketMQ4以及控制台。
+<!-- more -->
 
 ### centos7安装JDK8
 

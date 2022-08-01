@@ -1,5 +1,6 @@
+const moment = require('moment');
 module.exports = {
-  title: 'CV大魔王的笔记',
+  title: 'CV大魔王的博客',
   description: '技术类笔记，在往全栈的路上努力奋斗，主攻java，擅长微服务。前端方面熟悉vue3，ts，uniapp，原生安卓。对设计模式有所了解，正在恶补数据结构和算法',
   head: [
     ['link', {rel: 'icon', href: 'https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png'}]
@@ -33,5 +34,13 @@ module.exports = {
     '@vuepress/back-to-top',
     '@vuepress/last-updated',
     '@vuepress/search', {searchMaxSuggestions: 10},
+    ['@vuepress/last-updated', {
+      transformer: (timestamp) => {
+        // 不要忘了安装 moment
+        const moment = require('moment')
+        moment.locale('zh-CN')
+        return moment(timestamp).fromNow()
+      }
+    }]
   ]
 }
