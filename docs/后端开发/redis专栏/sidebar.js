@@ -24,6 +24,7 @@ module.exports = [
       {title: "缓存框架入门及准备操作",path:"/后端开发/redis专栏/SpringCache框架/SpringCache缓存框架入门"},
       "/后端开发/redis专栏/SpringCache框架/SpringCache框架常用注解",
       {title: "自定义配置和过期时间",path:"/后端开发/redis专栏/SpringCache框架/自定义配置和过期时间"},
+      "/后端开发/redis专栏/SpringCache框架/自定义缓存KeyGenerator",
     ]
   }
 ]
