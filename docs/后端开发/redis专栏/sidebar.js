@@ -16,5 +16,13 @@ module.exports = [
       {title: "基于Redis的高并发随机展示",path:"/后端开发/redis专栏/高阶使用技巧/基于Redis的高并发随机展示"},
       "/后端开发/redis专栏/高阶使用技巧/zset实战之微博热度排行榜",
     ]
+  },
+  {
+    title: "使用注解的方式使用Redis缓存",
+    collapsable: false,
+    children: [
+      {title: "缓存框架入门及准备操作",path:"/后端开发/redis专栏/SpringCache框架/SpringCache缓存框架入门"},
+      "/后端开发/redis专栏/SpringCache框架/SpringCache框架常用注解",
+    ]
   }
 ]
