@@ -1,5 +1,5 @@
 ---
-title: List结构之微信文章阅读量优化
+title: List数据结构之微信文章阅读量优化
 date: 2022-08-02 11:32
 categories:
 - java
@@ -19,18 +19,19 @@ redis大约QPS= 57万。如此大的并发量，CPU单核必定100%，此种技�
 :::
 
 1. 文章服务采用了集群部署，在线上可以部署N台
-2. 每个文章服务，增加了一级JVM缓存，即用Map存储在jvm。`Map<Long,Map<Integer,Integer>> = Map<时间块，Map<文章id,访问量>>`
+2. 每个文章服务增加了一级JVM缓存用Map存储在jvm。`Map<Long,Map<Integer,Integer>> = Map<时间块，Map<文章id,访问量>>`
 3. 一级缓存定时器消费：定时器，定时(5分钟)从jvm的map把时间块的阅读pv取出来,
    然后push到redis的list数据结构中，list的存储结构为Map<文章id,访问量PV>即每个时间块的pv数据
 4. 二级缓存定时器消费：定时器，定时(6分钟)从redis的list数据结构pop弹出Map<文章id,访问量 PV>，弹出来做了2件事:
     - 第一件事:先把Map<文章id，访问量PV>，保存到数据库
-    - 第二件事:再把Map<文章id，访问量PV>，同步到redis缓存的计数器incr。
-      以上4个步骤，用了一级缓存所有的高并发流量都收集到了本地JVM, 然后5分钟同步给二级缓存从而给redis降压。
+    - 第二件事:再把Map<文章id，访问量PV>，同步到redis缓存的计数器incr。 
+
+以上4个步骤，用了一级缓存所有的高并发流量都收集到了本地JVM, 然后5分钟同步给二级缓存从而给redis降压。
 
 ## 案例实战：二级缓存的高并发微信文章的阅读量PV技术方案
 
+案例实战首先需要模拟大量阅读请求，然后分别实现一级缓存和二级缓存的逻辑，最后实现查看浏览量的接口，其中添加到数据库的部分这里不做具体实现这一步是非常简单的，请读者根据业务需求来完善。
 ### 1.准备工作，模拟大量PV请求
-
 ```java 
 public class InitPVTask {
     @Autowired
@@ -156,11 +157,10 @@ public class OneCacheTask {
 ```
 
 ### 3.二级缓存定时器消费
-::: tip
-二级缓存定时器消费：定时器，定时(6分钟)从redis的list数据结构pop弹出Map<文章id,访问量 PV>，弹出来做了2件事:
+
+- 二级缓存定时器消费：定时器，定时(6分钟)从redis的list数据结构pop弹出Map<文章id,访问量 PV>，弹出来做了2件事:
   - 第一件事:先把Map<文章id，访问量PV>，保存到数据库
   - 第二件事:再把Map<文章id，访问量PV>，同步到redis缓存的计数器incr。
-:::
 
 
 
@@ -225,12 +225,12 @@ public class TwoCacheTask {
 
 ### 4.查看浏览量
 ```java 
-    @GetMapping(value = "/view")
-    public String view(Integer id) {
-        String key= Constants.CACHE_ARTICLE+id;
-        //调用redis的get命令
-        String n=this.stringRedisTemplate.opsForValue().get(key);
-        log.info("key={},阅读量为{}",key, n);
-        return n;
-    }
+ @GetMapping(value = "/view")
+ public String view(Integer id) {
+     String key= Constants.CACHE_ARTICLE+id;
+     //调用redis的get命令
+     String n=this.stringRedisTemplate.opsForValue().get(key);
+     log.info("key={},阅读量为{}",key, n);
+     return n;
+ }
 ```
