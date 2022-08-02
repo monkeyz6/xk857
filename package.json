@@ -16,6 +16,7 @@
     "leancloud-storage": "^4.13.1",
     "moment": "^2.29.4",
     "save": "^2.5.0",
+    "vue": "^2.7.8",
     "vuepress-plugin-comment": "^0.7.3"
   }
 }
