@@ -24,7 +24,7 @@ module.exports = [
     ]
   },
   {
-    title: "使用注解的方式使用Redis缓存",
+    title: "通过注解的方式使用Redis缓存",
     collapsable: false,
     children: [
       {title: "缓存框架入门及准备操作",path:"/后端开发/redis专栏/SpringCache框架/SpringCache缓存框架入门"},
