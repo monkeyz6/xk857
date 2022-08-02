@@ -22,7 +22,7 @@ module.exports = [
       {
         text: 'Vue框架',
         icon: 'iconfont icon-Vue',
-        link: '/前端开发/vue/开发环境搭建/使用Vite创建vue3项目'
+        link: '/前端开发/vue/Vue3核心开发手册/使用Vite创建vue3项目'
       }, {
         text: '原生js',
         icon: 'iconfont icon-js',
