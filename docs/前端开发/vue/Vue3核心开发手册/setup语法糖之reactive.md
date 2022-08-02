@@ -61,3 +61,30 @@ setTimeout(() => {
 ```
 
 
+### toRefs
+toRefs：可以帮我们批量创建ref对象主要是方便我们解构使用
+```vue
+<template>
+  <main>
+    <button @click="change">{{ obj.foo }}</button>
+  </main>
+</template>
+
+<script setup>
+import {reactive, toRefs} from "vue";
+const obj = reactive({
+  foo: 1,
+  bar: 1
+})
+// 常用于解构赋值
+let { foo, bar } = toRefs(obj)
+const change = () => {
+  foo.value++
+  console.log(obj.foo) // 2
+  console.log(foo.value) // 2，说明两个值都发送了变化
+}
+</script>
+```
+
+
+
