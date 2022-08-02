@@ -134,3 +134,17 @@ const msgChange = () => {
 }
 </script>
 ```
+
+### toRaw：将响应式对象转化为普通对象
+```javascript
+import { reactive, toRaw } from 'vue'
+const obj = reactive({
+  foo: 1,
+  bar: 1
+})
+// 响应式对象转化为普通对象
+const state = toRaw(obj)
+const change = () => {
+  console.log(obj, state);
+}
+```
