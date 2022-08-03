@@ -5,6 +5,7 @@ module.exports = [
     children: [
       "/Spring专栏/SpringBoot使用技巧/面向切面编程AOP",
       "/Spring专栏/SpringBoot使用技巧/SpringBoot定时任务",
+      "/Spring专栏/SpringBoot使用技巧/SpringBoot全局异常处理",
     ]
   }
 ]
