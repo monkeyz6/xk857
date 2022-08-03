@@ -19,6 +19,7 @@ module.exports = [
     collapsable: false,
     children: [
       "/前端开发/vue/vue引入第三方框架/vue3引入ElementPlus",
+      "/前端开发/vue/vue引入第三方框架/vue3引入Ant Design",
     ]
   }
 ]
