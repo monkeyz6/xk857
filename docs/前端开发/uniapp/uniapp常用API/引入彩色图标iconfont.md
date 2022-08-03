@@ -20,11 +20,11 @@ tags:
    iconfont-tools 
    ```
 
-![](https://oss.xk857.com/images/20220803/3aa40f56f27c4b8e81df6b55c01fee33.png)
+   ![](https://oss.xk857.com/images/20220803/3aa40f56f27c4b8e81df6b55c01fee33.png)
 
 4. 执行完毕后，会出现一个文件夹，iconfont-xk857，进入iconfont-xk857文件夹下，复制iconfont-xk857-icon.css到项目`/static/icon`目录下
 
-![](https://oss.xk857.com/images/20220803/3b30b1eda7c84661b3fe32dd96e24320.png)
+   ![](https://oss.xk857.com/images/20220803/3b30b1eda7c84661b3fe32dd96e24320.png)
 
 5. 然后在 App.vue 引入该文件
    ```vue

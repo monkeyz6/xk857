@@ -30,7 +30,7 @@ module.exports = [
       }, {
         text: 'uniapp',
         icon: 'iconfont icon-ico_tool02',
-        link: '/前端开发/uniapp/CSS设计模式'
+        link: '/前端开发/uniapp/uniapp常用API/入门与环境搭建'
       },{
         text: '基础扩展',
         icon: 'iconfont icon-sheji-xianxing',
