@@ -18,7 +18,7 @@ module.exports = [
     title: "vue引入第三方框架",
     collapsable: false,
     children: [
-
+      "/前端开发/vue/Vue3核心开发手册/vue3引入ElementPlus",
     ]
   }
 ]
