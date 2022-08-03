@@ -20,6 +20,7 @@ module.exports = [
     children: [
       "/前端开发/vue/vue引入第三方框架/vue3引入ElementPlus",
       "/前端开发/vue/vue引入第三方框架/vue3引入Ant Design",
+      "/前端开发/vue/vue引入第三方框架/vue3引入移动端组件库vant",
     ]
   }
 ]
