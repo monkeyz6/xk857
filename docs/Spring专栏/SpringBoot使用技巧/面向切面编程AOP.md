@@ -22,8 +22,7 @@ tags:
 
 切入点 Pointcut：不能全部方法都是连接点，通过特定的规则来筛选连接点, 就是Pointcut，选中那几个你想要的方法。在程序中主要体现为书写切入点表达式（通过通配、正则表达式）过滤出特定的一组JointPoint连接点，过滤出相应的 Advice 将要发生的joinpoint地方。
 
-- 切面 Aspect：
-  - 通常是一个类，里面定义 **切入点+通知** , 定义在什么地方； 什么时间点、做什么事情
+- 切面 Aspect：通常是一个类，里面定义 **切入点+通知**，定义在什么地方，什么时间点、做什么事情
   - **通知 advice指明了时间和做的事情（前置、后置等）**
   - **切入点 pointcut 指定在什么地方干这个事情**
   - web接口设计中，web层->网关层->服务层->数据层，每一层之间也是一个切面，对象和对象，方法和方法之间都是一个个切面
@@ -191,5 +190,5 @@ public class CustomConfig {
 
 ## 开启事务
 
-1. 在入口类使用注解 ==@EnableTransactionManagement== 开启事务
-2. 类或方法上加 ==@Transactional==
+1. 在入口类使用注解@EnableTransactionManagement开启事务
+2. 类或方法上加@Transactional
