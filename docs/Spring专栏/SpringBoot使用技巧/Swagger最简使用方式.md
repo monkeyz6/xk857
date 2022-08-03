@@ -125,9 +125,11 @@ public class CategoryREQ extends BaseRequest<Category> {
 
 
 
-**@ApiResponses**：用在请求的方法上，用于表示一组响应
+
 
 ::: tip
+**@ApiResponses**：用在请求的方法上，用于表示一组响应
+
 **@ApiResponse**：用在 @ApiResponses 中，一般用于表达一个错误的响应信息，注解参数：
 -  code：数字，如 400
 -  message：信息，如 “参数填写错误”
@@ -164,7 +166,7 @@ body：以流的形式提交 仅支持POST（不常用）
 form：以form表单的形式提交 仅支持POST （不常用）
 
 
-参考：
+### 请求使用参考
 
 ```java
 // 请求方法有多个请求参数 size， current
