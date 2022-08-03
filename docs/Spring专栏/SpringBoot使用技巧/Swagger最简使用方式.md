@@ -9,7 +9,6 @@ tags:
 
 springBoot使用swagger太麻烦，每次都需要编写config？如果我告诉你有这么一种方式，你只需要配置yml文件，你学还是不学？
 <!-- more -->
-
 ### 整合Swagger
 
 ```xml
@@ -26,9 +25,6 @@ springBoot使用swagger太麻烦，每次都需要编写config？如果我告诉
 
 
 ### 配置详解
-
-详细配置：
-
 ```yml
 spring:
   swagger:
@@ -88,30 +84,31 @@ spring:
 
 ### 复习——常用注解
 
-> 对swagger熟悉的小伙伴的请忽略“常用注解段落”
+::: tip
+**@Api**：用在 Controller 类上，描述该类的作用
+  1. value="描述信息"
+  2. description="详细描述该类的作用"
+:::
 
-```java
-`@Api`：用在 Controller 类上，描述该类的作用
-  1. `value`="描述信息"
-  2. `description`="详细描述该类的作用"
-```
+**@ApiOperation**：用在 Controller 请求方法上，描述方法的作用。
 
-@ApiOperation：用在 Controller 请求方法上，描述方法的作用。
-@ApiModel：用在请求参数是对象上，描述该对象类的作用
+**@ApiModel**：用在请求参数是对象上，描述该对象类的作用
 
 ```java
 // 在对象类上使用@ApiModel
 @ApiModel(value="CategoryREQ对象", description="类别查询条件")
-public class CategoryREQ extends BaseRequest<Category> {
+   public class CategoryREQ extends BaseRequest<Category> {
 }
 ```
 
-@ApiModelProperty：用在请求参数是对象的属性上，描述对象属性的作用。
+::: tip
+**@ApiModelProperty**：用在请求参数是对象的属性上，描述对象属性的作用。
+1. value：属性的描述 
+2. hidden：是否是查询条件属性, false:(默认值)在api文档显示，作为查询条件；true 隐藏，不是条件属性
+:::
 
-    1. `value`：属性的描述 
-    2. `hidden`：是否是查询条件属性, false:(默认值)在api文档显示，作为查询条件；true 隐藏，不是条件属性
 
-  ```java
+```java
 // 请求方法参数是 CategoryREQ 对象
 public Result search(@RequestBody CategoryREQ req) {}
 
@@ -124,34 +121,49 @@ public class CategoryREQ extends BaseRequest<Category> {
     @ApiModelProperty(value="状态(1:正常，0:禁用)")
     private Integer status;
 }
-  ```
+```
 
-`@ApiResponses`：用在请求的方法上，用于表示一组响应
 
-`@ApiResponse`：用在 `@ApiResponses` 中，一般用于表达一个错误的响应信息，注解参数：
 
--  `code`：数字，如 400
-    -  `message`：信息，如 “参数填写错误”
-    -  `response`：抛出异常的类
+**@ApiResponses**：用在请求的方法上，用于表示一组响应
 
-`@ApiIgnore`: 使用该注解忽略这个 API
+::: tip
+**@ApiResponse**：用在 @ApiResponses 中，一般用于表达一个错误的响应信息，注解参数：
+-  code：数字，如 400
+-  message：信息，如 “参数填写错误”
+-  response：抛出异常的类
+:::
 
-`@ApiImplicitParams`：用在请求方法上，对多个请求参数增加描述
 
-`@ApiImplicitParam`：可单独使用，或在 @ApiImplicitParams 中使用，给方法的一个请求参数增加描述。
+**@ApiIgnore**: 使用该注解忽略这个 API
 
-    1. `name`：参数名
-    2. `value`：描述参数的作用
-    3. `dataType`：参数类型，参数类型，默认String，其它值 dataType="Integer"
-    4. `defaultValue`：参数默认值
-    5. `required`：参数是否必传（true/false）
-    6. `paramTpye`：指定参数放在哪些地方（header/query/path/body/form）
 
-`header` ：参数在request headers 里边提交 @RequestHeader
-`query` ：直接跟参数完成自动映射赋值 @RequestParam
-`path` ：以路径变量的形式提交数据 @PathVariable
-`body` ：以流的形式提交 仅支持POST（不常用）
-`form` ：以form表单的形式提交 仅支持POST （不常用）
+
+
+::: tip
+**@ApiImplicitParams**：用在请求方法上，对多个请求参数增加描述
+
+**@ApiImplicitParam**：可单独使用，或在 @ApiImplicitParams 中使用，给方法的一个请求参数增加描述。
+ 1. name：参数名
+ 2. value：描述参数的作用
+ 3. dataType：参数类型，参数类型，默认String，其它值 dataType="Integer"
+ 4. defaultValue：参数默认值
+ 5. required：参数是否必传（true/false）
+ 6. paramTpye：指定参数放在哪些地方（header/query/path/body/form）
+:::
+
+
+header：参数在request headers 里边提交 @RequestHeader
+
+query：直接跟参数完成自动映射赋值 @RequestParam
+
+path：以路径变量的形式提交数据 @PathVariable
+
+body：以流的形式提交 仅支持POST（不常用）
+
+form：以form表单的形式提交 仅支持POST （不常用）
+
+
 参考：
 
 ```java
