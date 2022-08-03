@@ -1,5 +1,5 @@
 ---
-title: vue3的生命周期函数
+title: Vue3的生命周期函数
 date: 2021-08-03 09:33
 categories:
 - vue
