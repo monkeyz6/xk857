@@ -16,6 +16,7 @@ module.exports = [
     title: "数据库的安装",
     collapsable: false,
     children: [
+      "/数据库/数据库的安装/win系统MySQL升级到5.7",
     ]
   }
 ]
