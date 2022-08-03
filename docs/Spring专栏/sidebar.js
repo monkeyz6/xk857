@@ -4,6 +4,7 @@ module.exports = [
     collapsable: false,
     children: [
       "/Spring专栏/SpringBoot使用技巧/面向切面编程AOP",
+      "/Spring专栏/SpringBoot使用技巧/SpringBoot定时任务",
     ]
   }
 ]
