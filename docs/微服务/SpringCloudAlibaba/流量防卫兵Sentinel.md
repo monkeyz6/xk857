@@ -29,6 +29,7 @@ Sentinel是阿里巴巴开源的分布式系统流控工具，以流量为切入
 
 
 - 想进行微服务的容错，业界目前有Sentinel、Hystrix，相对于AlibabaCloud而言，Sentinel是最好的搭配
+![Sentinel核心概念](https://oss.xk857.com/images/20220803/Sentinel核心概念.png)
 
 
 ## 基本使用
@@ -68,30 +69,23 @@ spring:
 
 ## 流控的使用和规则
 
-### 使用
-
 1. 设置流控规则
+![Sentinel控制台1](https://oss.xk857.com/images/20220803/Sentinel控制台1.png)
+![Sentinel控制台2](https://oss.xk857.com/images/20220803/Sentinel控制台2.png)
 
-[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cFo8wdWp-1635235670378)(639D5F66F5A64822A5151E3A7E3F5425)]
-
-[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-rMlCPCTq-1635235670380)(5FCCF3914621499D8796A343A50315D4)]
-
-
-
+   
 2. 流控规则
 
-- 两种规则
 
-    - 基于统计并发线程数的流量控制
-
-  > 并发数控制用于保护业务线程池不被慢调用耗尽
-  > Sentinel 并发控制不负责创建和管理线程池，而是简单统计当前请求上下文的线程数目（正在执行的调用数目）如果超出阈值，新的请求会被立即拒绝，效果类似于信号量隔离。
-
-
-
+- 基于统计并发线程数的流量控制
+  ::: tip
+  并发数控制用于保护业务线程池不被慢调用耗尽
+  Sentinel 并发控制不负责创建和管理线程池，而是简单统计当前请求上下文的线程数目（正在执行的调用数目）如果超出阈值，新的请求会被立即拒绝，效果类似于信号量隔离。
+  :::
 - 基于统计QPS的流量控制
-
-  > 当 QPS 超过某个阈值的时候，则采取措施进行流量控制
+  ::: tip
+  当 QPS 超过某个阈值的时候，则采取措施进行流量控制
+  :::
 
 
 ### 流控规则效果
@@ -238,11 +232,10 @@ spring:
 
 
 
-## Sentinel整合Open-Feign
-
-> 简单理解：使用Open-Feign获取远程数据时，如果远程数据出现故障获取不到，我们可以实现这个Service接口，当没有远程数据时，会将兜底数据展现给用户。
-
-整合步骤
+### Sentinel整合Open-Feign
+::: tip
+简单理解：使用Open-Feign获取远程数据时，如果远程数据出现故障获取不到，我们可以实现这个Service接口，当没有远程数据时，会将兜底数据展现给用户。
+:::
 
 - 加入依赖
 
@@ -255,7 +248,7 @@ spring:
 
 - 开启Feign对Sentinel的支持
 
-```
+```yaml
 feign:
   sentinel:
     enabled: true
@@ -263,7 +256,7 @@ feign:
 
 - 创建容错类, 实现对应的服务接口, 记得加注解 @Service
 
-```
+```java
 @Service
 public class VideoServiceFallback implements VideoService {
     @Override
@@ -281,10 +274,10 @@ public class VideoServiceFallback implements VideoService {
 ```
 
 - 在Service层，配置feign容错类
-
-> @FeignClient(value = "xdclass-video-service", fallback = VideoServiceFallback.class)
-
-```
+::: tip
+@FeignClient(value = "xdclass-video-service", fallback = VideoServiceFallback.class)
+:::
+```java
 @FeignClient(value = "xdclass-video-service", fallback = VideoServiceFallback.class)
 public interface VideoService {
 
