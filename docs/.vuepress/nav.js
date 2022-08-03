@@ -41,6 +41,6 @@ module.exports = [
   {text: '数据库', icon: 'iconfont icon-shujuku', link: '/数据库/新零售行业数据库设计/'},
   {text: '微服务专栏', icon: 'iconfont icon-mseweifuwuyinqing', link: '/微服务专栏/'},
   {text: '插件开发', icon: 'iconfont icon-chajian1', link: '/插件开发/'},
-  {text: 'Spring专栏', icon: 'iconfont icon-yezi', link: '/Spring专栏/'},
+  {text: 'Spring专栏', icon: 'iconfont icon-yezi', link: '/Spring专栏/SpringBoot使用技巧/面向切面编程AOP'},
   {text: '时间轴', link: '/timeline/', icon: 'reco-date'}
 ]

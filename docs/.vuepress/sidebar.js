@@ -5,5 +5,6 @@ module.exports = {
   '/前端开发/前端基础/': require('../前端开发/前端基础/sidebar.js'),
   '/前端开发/vue/': require('../前端开发/vue/sidebar.js'),
   '/数据库/': require('../数据库/sidebar.js'),
+  '/Spring专栏/': require('../Spring专栏/sidebar.js'),
 }
 
