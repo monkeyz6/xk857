@@ -125,3 +125,63 @@ watch(()=>message.name, (newVal, oldVal) => {
     console.log('旧的值----', oldVal);
 })
 ```
+
+
+## watchEffect高级侦听器
+
+立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数，界面刚进入的时候普通的watch不会立即触发，而watchEffect会自动执行一遍。
+
+如果用到message就只会监听message就是用到几个监听几个，而且是非惰性，会默认调用一次
+```javascript
+let message = ref('')
+let message2 = ref('')
+ watchEffect(() => {
+    //console.log('message', message.value);
+    console.log('message2', message2.value);
+})
+```
+
+::: tip
+我认为区别最大的地方就在于，watch需要设置监听哪些属性，watchEffect不需要设置，直接在方法中调用即可，如果数据改变能够直接监听到。
+:::
+
+
+### 出发监听前调用函数
+在触发监听之前会调用一个函数可以处理你的逻辑例如防抖
+```javascript
+import { watchEffect, ref } from 'vue'
+let message = ref('')
+let message2 = ref('')
+watchEffect((oninvalidate) => {
+    console.log('message', message.value);
+    console.log('message2', message2.value);
+    oninvalidate(()=>{
+      // 会先调用此函数，您可以处理您的逻辑，例如防抖
+    })
+})
+```
+
+
+### 停止跟踪watchEffect
+返回一个函数，调用之后将停止更新
+```javascript
+const stop =  watchEffect((oninvalidate) => {
+  console.log('message', message.value);
+  console.log('message2', message2.value);
+  oninvalidate(()=>{
+    // 会先调用此函数，您可以处理您的逻辑，例如防抖
+  })
+},{
+    flush:"post",
+    onTrigger () {
+ 
+    }
+})
+stop() // 调用后watchEffect不再进行监听
+```
+::: tip
+副作用刷新时机flush一般使用post
+- pre：组件更新前执行 
+- sync：强制效果始终同步触发 
+- post：组件更新后执行
+::: 
