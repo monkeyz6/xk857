@@ -9,6 +9,7 @@ module.exports = [
       "/微服务/SpringCloudAlibaba/Nacos注册中心",
       {title: "负载均衡和远程调用", path: "/微服务/SpringCloudAlibaba/负载均衡和远程调用"},
       "/微服务/SpringCloudAlibaba/流量防卫兵Sentinel",
+      "/微服务/SpringCloudAlibaba/新一代微服务网关Gateway",
     ]
   }
 ]
