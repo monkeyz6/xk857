@@ -8,6 +8,7 @@ module.exports = [
       "/前端开发/vue/Vue3核心开发手册/setup语法糖之reactive",
       {title: "vue3的计算属性与侦听器", path: "/前端开发/vue/Vue3核心开发手册/setup语法糖之计算属性与侦听器"},
       "/前端开发/vue/Vue3核心开发手册/vue3的生命周期函数",
+      "/前端开发/vue/Vue3核心开发手册/Vue3之父子组件的传参",
     ]
   }
 ]
