@@ -16,7 +16,7 @@ tags:
 
 安装：
 ```shell
-    npm install element-plus --save
+npm install element-plus --save
 ```
 
 
