@@ -4,7 +4,7 @@ module.exports = [
     collapsable: false,
     children: [
       "/数据库/新零售行业数据库设计/",
-      "/数据库/新零售行业数据库设计/商品存储设计之SKU与SPU",
+      "/数据库/新零售行业数据库设计/商品相关数据库设计",
     ]
   },{
     title: "数据库的安装",
