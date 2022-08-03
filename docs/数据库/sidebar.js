@@ -17,6 +17,7 @@ module.exports = [
     collapsable: false,
     children: [
       "/数据库/数据库的安装/win系统MySQL升级到5.7",
+      "/数据库/数据库的安装/使用Docker安装MySQL5.7",
     ]
   }
 ]
