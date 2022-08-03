@@ -4,5 +4,6 @@ module.exports = {
   '/后端开发/redis专栏/': require('../后端开发/redis专栏/sidebar.js'),
   '/前端开发/前端基础/': require('../前端开发/前端基础/sidebar.js'),
   '/前端开发/vue/': require('../前端开发/vue/sidebar.js'),
+  '/数据库/': require('../数据库/sidebar.js'),
 }
 
