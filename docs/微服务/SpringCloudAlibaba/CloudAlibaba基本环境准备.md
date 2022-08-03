@@ -100,7 +100,8 @@ CREATE TABLE `video_order` (
     - xk857-user-service
     - xk857-order-service
 
-**第一步：创建聚合工程**
+
+### 第一步：创建聚合工程
 
 注意：聚合工程不需要src目录，直接删除即可
 
@@ -167,7 +168,7 @@ CREATE TABLE `video_order` (
 
 
 
-**第二步：创建工具模块**
+### 第二步：创建工具模块
 
 > xk857-common
 
@@ -185,7 +186,7 @@ CREATE TABLE `video_order` (
 
 
 
-**第三步：创建3个子项目**
+### 第三步：创建3个子项目
 
 添加子项目依赖
 
@@ -225,7 +226,7 @@ public class VideoOrder {
 ```
 
 
-**在聚合工程添加Mybatis依赖**
+### 在聚合工程添加Mybatis依赖
 
 ```xml
 <dependency>
@@ -238,7 +239,7 @@ public class VideoOrder {
 ```
 
 
-**在3个子工程添加依赖**
+### 在3个子工程添加依赖
 
 ```xml
 <!-- MyBatis -->
@@ -253,7 +254,7 @@ public class VideoOrder {
 </dependency>
 ```
 
-**3个子项目新建`application.yml`配置数据库连接**
+### 三个子项目新建application.yml配置数据库连接
 
 ```yml
 server:
@@ -275,11 +276,12 @@ mybatis:
     map-underscore-to-camel-case: true
 ```
 
-**创建启动类**
+
+### 创建启动类
 
 ```java
 @SpringBootApplication
-@MapperScan("com.xk857,dao")
+@MapperScan("com.xk857.dao")
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class,args);
