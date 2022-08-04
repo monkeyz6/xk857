@@ -14,7 +14,11 @@ module.exports = [
         text: 'Redis专栏',
         icon: 'iconfont icon-Redis',
         link: '/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用'
-      },
+      },{
+        text: '第三方支付',
+        icon: 'iconfont icon-Redis',
+        link: '/后端开发/第三方支付/微信支付V3/微信支付准备工作'
+      }
     ]
   },
   {
