@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基于Redis的高并发随机展示 - Set实战之QQ群、微博好友随机推荐 | CV大魔王的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png">
+    <meta name="description" content="技术类笔记，在往全栈的路上努力奋斗，主攻java，擅长微服务。前端方面熟悉vue3，ts，uniapp，原生安卓。对设计模式有所了解，正在恶补数据结构和算法">
+    
+    <link rel="preload" href="/assets/css/0.styles.d2686781.css" as="style"><link rel="preload" href="/assets/js/app.8220c4ff.js" as="script"><link rel="preload" href="/assets/js/4.882b4b09.js" as="script"><link rel="preload" href="/assets/js/1.ed9981e3.js" as="script"><link rel="preload" href="/assets/js/65.49632ab1.js" as="script"><link rel="prefetch" href="/assets/js/10.cb7374c4.js"><link rel="prefetch" href="/assets/js/100.55ea7755.js"><link rel="prefetch" href="/assets/js/101.8c81f9a8.js"><link rel="prefetch" href="/assets/js/102.ee93b4ff.js"><link rel="prefetch" href="/assets/js/103.f946413c.js"><link rel="prefetch" href="/assets/js/104.b905fa17.js"><link rel="prefetch" href="/assets/js/11.352e34a2.js"><link rel="prefetch" href="/assets/js/12.21b63449.js"><link rel="prefetch" href="/assets/js/13.71eb96f3.js"><link rel="prefetch" href="/assets/js/14.69c20c24.js"><link rel="prefetch" href="/assets/js/15.b4f9a79a.js"><link rel="prefetch" href="/assets/js/16.33344e0b.js"><link rel="prefetch" href="/assets/js/17.7214e8a1.js"><link rel="prefetch" href="/assets/js/18.169243cb.js"><link rel="prefetch" href="/assets/js/19.d25dd3fe.js"><link rel="prefetch" href="/assets/js/20.1b3b7495.js"><link rel="prefetch" href="/assets/js/21.dacbb9c1.js"><link rel="prefetch" href="/assets/js/22.b51ef066.js"><link rel="prefetch" href="/assets/js/23.0eb37e2e.js"><link rel="prefetch" href="/assets/js/24.07064041.js"><link rel="prefetch" href="/assets/js/25.c897040f.js"><link rel="prefetch" href="/assets/js/26.ac299e1e.js"><link rel="prefetch" href="/assets/js/27.ea6987f9.js"><link rel="prefetch" href="/assets/js/28.831f2ba1.js"><link rel="prefetch" href="/assets/js/29.9c327bae.js"><link rel="prefetch" href="/assets/js/30.e92fa7a8.js"><link rel="prefetch" href="/assets/js/31.8ae52f89.js"><link rel="prefetch" href="/assets/js/32.f53b9ed0.js"><link rel="prefetch" href="/assets/js/33.26987485.js"><link rel="prefetch" href="/assets/js/34.e843f3d9.js"><link rel="prefetch" href="/assets/js/35.a464df36.js"><link rel="prefetch" href="/assets/js/36.59019c8f.js"><link rel="prefetch" href="/assets/js/37.c2a1973f.js"><link rel="prefetch" href="/assets/js/38.681eea1b.js"><link rel="prefetch" href="/assets/js/39.db3c5f57.js"><link rel="prefetch" href="/assets/js/40.ce4c29cd.js"><link rel="prefetch" href="/assets/js/41.ad7afa14.js"><link rel="prefetch" href="/assets/js/42.a79e99a9.js"><link rel="prefetch" href="/assets/js/43.5aa7c37e.js"><link rel="prefetch" href="/assets/js/44.4073e6c2.js"><link rel="prefetch" href="/assets/js/45.7ea7ad1c.js"><link rel="prefetch" href="/assets/js/46.24141e2f.js"><link rel="prefetch" href="/assets/js/47.d6f84db4.js"><link rel="prefetch" href="/assets/js/48.db9b360a.js"><link rel="prefetch" href="/assets/js/49.9bca1f80.js"><link rel="prefetch" href="/assets/js/5.46a42168.js"><link rel="prefetch" href="/assets/js/50.6400873f.js"><link rel="prefetch" href="/assets/js/51.935b8940.js"><link rel="prefetch" href="/assets/js/52.adc2f72f.js"><link rel="prefetch" href="/assets/js/53.a5bdbe42.js"><link rel="prefetch" href="/assets/js/54.5edbf888.js"><link rel="prefetch" href="/assets/js/55.4c87ff32.js"><link rel="prefetch" href="/assets/js/56.bb90eb7b.js"><link rel="prefetch" href="/assets/js/57.a0bdf647.js"><link rel="prefetch" href="/assets/js/58.4af099b4.js"><link rel="prefetch" href="/assets/js/59.e852dba3.js"><link rel="prefetch" href="/assets/js/6.736bdda0.js"><link rel="prefetch" href="/assets/js/60.6c027f6b.js"><link rel="prefetch" href="/assets/js/61.5cbb70f6.js"><link rel="prefetch" href="/assets/js/62.6972819c.js"><link rel="prefetch" href="/assets/js/63.8a78f5bb.js"><link rel="prefetch" href="/assets/js/64.71288c5f.js"><link rel="prefetch" href="/assets/js/66.0115032e.js"><link rel="prefetch" href="/assets/js/67.d7660be3.js"><link rel="prefetch" href="/assets/js/68.97a6a25e.js"><link rel="prefetch" href="/assets/js/69.3728a8b7.js"><link rel="prefetch" href="/assets/js/7.4bfbed8d.js"><link rel="prefetch" href="/assets/js/70.fadf7024.js"><link rel="prefetch" href="/assets/js/71.ed1309cc.js"><link rel="prefetch" href="/assets/js/72.5a73af76.js"><link rel="prefetch" href="/assets/js/73.bc8cd10c.js"><link rel="prefetch" href="/assets/js/74.763bb12a.js"><link rel="prefetch" href="/assets/js/75.d676763d.js"><link rel="prefetch" href="/assets/js/76.cba19823.js"><link rel="prefetch" href="/assets/js/77.c9c0f64a.js"><link rel="prefetch" href="/assets/js/78.9de010c8.js"><link rel="prefetch" href="/assets/js/79.8528c3f2.js"><link rel="prefetch" href="/assets/js/8.fca3a884.js"><link rel="prefetch" href="/assets/js/80.5d53bc20.js"><link rel="prefetch" href="/assets/js/81.25e39ee6.js"><link rel="prefetch" href="/assets/js/82.619f1d95.js"><link rel="prefetch" href="/assets/js/83.8cf31515.js"><link rel="prefetch" href="/assets/js/84.de87ecfe.js"><link rel="prefetch" href="/assets/js/85.08b86625.js"><link rel="prefetch" href="/assets/js/86.b8c874ba.js"><link rel="prefetch" href="/assets/js/87.ad5b56b4.js"><link rel="prefetch" href="/assets/js/88.adbfeea4.js"><link rel="prefetch" href="/assets/js/89.bd6e7ce6.js"><link rel="prefetch" href="/assets/js/9.c69f285b.js"><link rel="prefetch" href="/assets/js/90.3c6f8d07.js"><link rel="prefetch" href="/assets/js/91.ec093241.js"><link rel="prefetch" href="/assets/js/92.03be8de6.js"><link rel="prefetch" href="/assets/js/93.f0777e81.js"><link rel="prefetch" href="/assets/js/94.e72eddc1.js"><link rel="prefetch" href="/assets/js/95.a325f628.js"><link rel="prefetch" href="/assets/js/96.5d9ced83.js"><link rel="prefetch" href="/assets/js/97.e38efa7b.js"><link rel="prefetch" href="/assets/js/98.59d09507.js"><link rel="prefetch" href="/assets/js/99.9696bfb7.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.23dbc357.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d2686781.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-5bb33761><div data-v-5bb33761><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-5bb33761 data-v-5bb33761><h3 class="title" data-v-59e6cb88>CV大魔王的博客</h3> <p class="description" data-v-59e6cb88>技术类笔记，在往全栈的路上努力奋斗，主攻java，擅长微服务。前端方面熟悉vue3，ts，uniapp，原生安卓。对设计模式有所了解，正在恶补数据结构和算法</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>cv大魔王</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2022
+      </a></span></div></div> <div class="hide" data-v-5bb33761><header class="navbar" data-v-5bb33761><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png" alt="CV大魔王的博客" class="logo"> <span class="site-name">CV大魔王的博客</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-JavaCorefenxigongju"></i>
+      Java
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/后端开发/java/java高效编程常用技术优化手段/资源关闭优化方案.html" class="nav-link"><i class="iconfont icon-java"></i>
+  java开发技巧
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题.html" class="nav-link"><i class="iconfont icon-xiaoxiduilie"></i>
+  消息队列专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用.html" class="nav-link"><i class="iconfont icon-Redis"></i>
+  Redis专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/第三方支付/微信支付V3/微信支付准备工作.html" class="nav-link"><i class="iconfont icon-weixinzhifu"></i>
+  第三方支付
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-web"></i>
+      前端开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/前端开发/vue/Vue3核心开发手册/使用Vite创建vue3项目.html" class="nav-link"><i class="iconfont icon-Vue"></i>
+  Vue框架
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/js/CSS设计模式.html" class="nav-link"><i class="iconfont icon-js"></i>
+  原生js
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/uniapp/uniapp常用API/入门与环境搭建.html" class="nav-link"><i class="iconfont icon-ico_tool02"></i>
+  uniapp
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/前端基础/css/CSS设计模式.html" class="nav-link"><i class="iconfont icon-sheji-xianxing"></i>
+  基础扩展
+</a></li></ul></div></div><div class="nav-item"><a href="/数据库/新零售行业数据库设计/" class="nav-link"><i class="iconfont icon-shujuku"></i>
+  数据库
+</a></div><div class="nav-item"><a href="/微服务/SpringCloudAlibaba/分布式架构理论.html" class="nav-link"><i class="iconfont icon-mseweifuwuyinqing"></i>
+  微服务专栏
+</a></div><div class="nav-item"><a href="/插件开发/IDEA插件开发常用API/插件开发之创建菜单.html" class="nav-link"><i class="iconfont icon-chajian1"></i>
+  插件开发
+</a></div><div class="nav-item"><a href="/Spring专栏/SpringBoot使用技巧/面向切面编程AOP.html" class="nav-link"><i class="iconfont icon-yezi"></i>
+  Spring专栏
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bb33761></div> <aside class="sidebar" data-v-5bb33761><div class="personal-info-wrapper" data-v-1fad0c41 data-v-5bb33761><img src="https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/image-20220731204655849.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    cv大魔王
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>93</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>19</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-JavaCorefenxigongju"></i>
+      Java
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/后端开发/java/java高效编程常用技术优化手段/资源关闭优化方案.html" class="nav-link"><i class="iconfont icon-java"></i>
+  java开发技巧
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题.html" class="nav-link"><i class="iconfont icon-xiaoxiduilie"></i>
+  消息队列专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用.html" class="nav-link"><i class="iconfont icon-Redis"></i>
+  Redis专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/第三方支付/微信支付V3/微信支付准备工作.html" class="nav-link"><i class="iconfont icon-weixinzhifu"></i>
+  第三方支付
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-web"></i>
+      前端开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/前端开发/vue/Vue3核心开发手册/使用Vite创建vue3项目.html" class="nav-link"><i class="iconfont icon-Vue"></i>
+  Vue框架
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/js/CSS设计模式.html" class="nav-link"><i class="iconfont icon-js"></i>
+  原生js
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/uniapp/uniapp常用API/入门与环境搭建.html" class="nav-link"><i class="iconfont icon-ico_tool02"></i>
+  uniapp
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/前端基础/css/CSS设计模式.html" class="nav-link"><i class="iconfont icon-sheji-xianxing"></i>
+  基础扩展
+</a></li></ul></div></div><div class="nav-item"><a href="/数据库/新零售行业数据库设计/" class="nav-link"><i class="iconfont icon-shujuku"></i>
+  数据库
+</a></div><div class="nav-item"><a href="/微服务/SpringCloudAlibaba/分布式架构理论.html" class="nav-link"><i class="iconfont icon-mseweifuwuyinqing"></i>
+  微服务专栏
+</a></div><div class="nav-item"><a href="/插件开发/IDEA插件开发常用API/插件开发之创建菜单.html" class="nav-link"><i class="iconfont icon-chajian1"></i>
+  插件开发
+</a></div><div class="nav-item"><a href="/Spring专栏/SpringBoot使用技巧/面向切面编程AOP.html" class="nav-link"><i class="iconfont icon-yezi"></i>
+  Spring专栏
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Redis高阶使用技巧</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用.html" class="sidebar-link">Redis概述及基本使用</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/INCR命令之微信文章阅读量.html" class="sidebar-link">INCR命令之微信文章阅读量</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/List结构之微信文章阅读量优化.html" class="sidebar-link">List之微信文章阅读量优化</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/List结构实战之每日热销榜单.html" class="sidebar-link">List结构实战之每日热销榜单</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/List结构实战之淘宝聚划算.html" class="sidebar-link">List结构实战之淘宝聚划算</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/淘宝聚划算缓存击穿问题解决.html" class="sidebar-link">淘宝聚划算缓存击穿问题解决</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/List结构实战之微信抢红包.html" class="sidebar-link">List结构实战之微信抢红包</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Hash结构实战之电商购物车.html" class="sidebar-link">Hash结构实战之电商购物车</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Hash结构实战之淘宝短链接.html" class="sidebar-link">Hash结构实战之淘宝短链接</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Set实战之用户画像标签去重.html" class="sidebar-link">Set实战之用户画像标签去重</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Set实战之社交应用中的共同好友.html" class="sidebar-link">Set之社交应用中的共同好友</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Set实战之黑名单校验器.html" class="sidebar-link">Set实战之黑名单校验器</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Set结构实战之微博点赞.html" class="sidebar-link">Set结构实战之微博点赞</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Set结构实战之京豆抽奖.html" class="sidebar-link">Set结构实战之京豆抽奖</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/Set实战之支付宝天天抽奖.html" class="sidebar-link">Set实战之支付宝天天抽奖</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/基于Redis的高并发随机展示.html" class="active sidebar-link">基于Redis的高并发随机展示</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/SortedSet之用户积分实时榜单.html" class="sidebar-link">SortedSet之用户积分实时榜单</a></li><li><a href="/后端开发/redis专栏/高阶使用技巧/zset实战之微博热度排行榜.html" class="sidebar-link">zset实战之微博热度排行榜</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>通过注解的方式使用Redis缓存</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/后端开发/redis专栏/SpringCache框架/SpringCache缓存框架入门.html" class="sidebar-link">缓存框架入门及准备操作</a></li><li><a href="/后端开发/redis专栏/SpringCache框架/SpringCache框架常用注解.html" class="sidebar-link">SpringCache框架常用注解</a></li><li><a href="/后端开发/redis专栏/SpringCache框架/自定义配置和过期时间.html" class="sidebar-link">自定义配置和过期时间</a></li><li><a href="/后端开发/redis专栏/SpringCache框架/自定义缓存KeyGenerator.html" class="sidebar-link">自定义缓存KeyGenerator</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-5bb33761><h3 class="title" data-v-59e6cb88>基于Redis的高并发随机展示 - Set实战之QQ群、微博好友随机推荐</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>cv大魔王</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2022
+      </a></span></div></div> <div data-v-5bb33761><div data-v-5bb33761><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">基于Redis的高并发随机展示 - Set实战之QQ群、微博好友随机推荐</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>cv大魔王</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>8/1/2022</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/redis%E4%B8%93%E6%A0%8F/%E9%AB%98%E9%98%B6%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/%E5%9F%BA%E4%BA%8ERedis%E7%9A%84%E9%AB%98%E5%B9%B6%E5%8F%91%E9%9A%8F%E6%9C%BA%E5%B1%95%E7%A4%BA.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>java</span><span class="tag-item" data-v-8a445198>Redis</span></i></div></div> <div class="theme-reco-content content__default"><p>为什么要随机展示？ 因为展示的区域有限，在那么小的地方展示全部数据是不可能的，通常的做法就是随机展示一批数据，然后用户点击“换一换”按钮，再随机展示另一批。
+</p> <p>QQ群随机推荐</p> <p><img src="https://xk857.com/typora/2021/05image-20210523194426809.png" alt="image-20210523194426809"></p> <p>微博随机推荐</p> <p><img src="https://xk857.com/typora/2021/05image-20210523194630209.png" alt="image-20210523194630209"></p> <h3 id="随机展示的redis技术方案"><a href="#随机展示的redis技术方案" class="header-anchor">#</a> 随机展示的redis技术方案</h3> <div class="custom-block tip"><p class="title"></p><p>上文已经说了随机展示的原因就是区域有限，而区域有限的地方通常就是首页或频道页，这些位置通常都是访问量并发量非常高的，
+一般是不可能采用数据库来实现的，通常都是Redis来实现。</p></div><p>redis的实现技术方案:</p> <ol><li>先把数据准备好，把所有需要展示的内容存入redis的Set数据结构中。</li> <li>通过<code>srandmember</code>命令随机拿一批数据出来。</li></ol> <h3 id="实现qq群随机推荐"><a href="#实现qq群随机推荐" class="header-anchor">#</a> 实现QQ群随机推荐</h3> <p>数据模拟</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TaskCrowdService</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">RedisTemplate</span> redisTemplate<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> CROWD_KEY <span class="token operator">=</span> <span class="token string">&quot;crowd&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     *提前先把数据刷新到redis缓存中。
+     */</span>
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> crowds<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">crowd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>redisTemplate<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>CROWD_KEY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        crowds<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>t<span class="token operator">-&gt;</span><span class="token keyword">this</span><span class="token punctuation">.</span>redisTemplate<span class="token punctuation">.</span><span class="token function">opsForSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>CROWD_KEY<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 模拟100个热门群，用于推荐
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">crowd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> list<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Random</span> rand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> id<span class="token operator">=</span> rand<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;群&quot;</span><span class="token operator">+</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>接口实现</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/crowd&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">crowd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> list<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token comment">//采用redis set数据结构，随机取出10条数据</span>
+        list <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>redisTemplate<span class="token punctuation">.</span><span class="token function">opsForSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">randomMembers</span><span class="token punctuation">(</span><span class="token class-name">TaskCrowdService</span><span class="token punctuation">.</span>CROWD_KEY<span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//这里的异常，一般是redis瘫痪 ，或 redis网络timeout</span>
+        <span class="token comment">//TODO 走DB查询</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="实现微博榜单随机推荐"><a href="#实现微博榜单随机推荐" class="header-anchor">#</a> 实现微博榜单随机推荐</h3> <div class="custom-block tip"><p class="title"></p><p>微博榜单是整块数据的，所以随机的数据要按块来推荐，这里和QQ榜单不一样，所以我们要定义一个java bean来包装整块数据。
+什么叫按块分数据的？意思是榜单是不同的，如知音漫画榜、亚洲娱乐榜等等。</p></div><p>构建javaBean</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WeiboList</span> <span class="token punctuation">{</span>
+    
+    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * 榜单名称
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> users<span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>模拟数据</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TaskWeibolistService</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">RedisTemplate</span> redisTemplate<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> WEIBO_LIST_KEY <span class="token operator">=</span> <span class="token string">&quot;weibo:list&quot;</span><span class="token punctuation">;</span>
+    
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">WeiboList</span><span class="token punctuation">&gt;</span></span> crowds <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        redisTemplate<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>WEIBO_LIST_KEY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        crowds<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>t<span class="token operator">-&gt;</span>redisTemplate<span class="token punctuation">.</span><span class="token function">opsForSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>WEIBO_LIST_KEY<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 模拟10个热门榜单，用于推荐
+     */</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">WeiboList</span><span class="token punctuation">&gt;</span></span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">WeiboList</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">WeiboList</span> wl <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeiboList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            wl<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            wl<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">&quot;榜单&quot;</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">Random</span> rand <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> users <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> id <span class="token operator">=</span> rand<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                users<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;user:&quot;</span> <span class="token operator">+</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            wl<span class="token punctuation">.</span><span class="token function">setUsers</span><span class="token punctuation">(</span>users<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>wl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>编写随机查询接口</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">&quot;/weibolist&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">WeiboList</span> <span class="token function">weibolist</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">WeiboList</span> list<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token comment">//随机取1块数据</span>
+        list <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">WeiboList</span><span class="token punctuation">)</span><span class="token keyword">this</span><span class="token punctuation">.</span>redisTemplate<span class="token punctuation">.</span><span class="token function">opsForSet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">randomMember</span><span class="token punctuation">(</span><span class="token class-name">TaskWeibolistService</span><span class="token punctuation">.</span>WEIBO_LIST_KEY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//这里的异常，一般是redis瘫痪 ，或 redis网络timeout</span>
+        <span class="token comment">//TODO 走DB查询</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">3 天前</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/后端开发/redis专栏/高阶使用技巧/Set实战之支付宝天天抽奖.html" class="prev">
+          Set实战之支付宝天天抽奖
+        </a></span> <span class="next"><a href="/后端开发/redis专栏/高阶使用技巧/SortedSet之用户积分实时榜单.html">
+          SortedSet之用户积分实时榜单
+        </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-ac050c62></ul></main></div> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.8220c4ff.js" defer></script><script src="/assets/js/4.882b4b09.js" defer></script><script src="/assets/js/1.ed9981e3.js" defer></script><script src="/assets/js/65.49632ab1.js" defer></script>
+  </body>
+</html>
