@@ -28,6 +28,11 @@ module.exports = {
     valineConfig: {
       appId: 'UdAhhnSzFfnsBzA22zoT6BaF-gzGzoHsz',// your appId
       appKey: 'z3p2CHOsy3LCfqJqpzrWQtPN', // your appKey
+    },
+    algolia: {
+      appId: '33985UTRSK',
+      apiKey: 'ee880b62a5ada5c3cc9c0e30c85fca7f',
+      indexName: 'xk857'
     }
   },
   plugins: [
