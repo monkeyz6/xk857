@@ -14,7 +14,7 @@ module.exports = [
         text: 'Redis专栏',
         icon: 'iconfont icon-Redis',
         link: '/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用'
-      },{
+      }, {
         text: '第三方支付',
         icon: 'iconfont icon-weixinzhifu',
         link: '/后端开发/第三方支付/微信支付V3/微信支付准备工作'
@@ -27,15 +27,13 @@ module.exports = [
         text: 'Vue框架',
         icon: 'iconfont icon-Vue',
         link: '/前端开发/vue/Vue3核心开发手册/使用Vite创建vue3项目'
-      }, {
-        text: '原生js',
-        icon: 'iconfont icon-js',
-        link: '/前端开发/js/CSS设计模式'
-      }, {
-        text: 'uniapp',
-        icon: 'iconfont icon-ico_tool02',
-        link: '/前端开发/uniapp/uniapp常用API/入门与环境搭建'
-      },{
+      },
+      // {
+      //   text: '原生js',
+      //   icon: 'iconfont icon-js',
+      //   link: '/前端开发/js/CSS设计模式'
+      // },
+      {
         text: '基础扩展',
         icon: 'iconfont icon-sheji-xianxing',
         link: '/前端开发/前端基础/css/CSS设计模式'

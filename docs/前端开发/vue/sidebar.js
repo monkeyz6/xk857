@@ -22,6 +22,15 @@ module.exports = [
       "/前端开发/vue/vue引入第三方框架/vue3引入Ant Design",
       "/前端开发/vue/vue引入第三方框架/vue3引入移动端组件库vant",
     ]
+  }, {
+    title: "uniapp开发备忘录",
+    collapsable: false,
+    children: [
+      "/前端开发/uniapp/入门与环境搭建",
+      "/前端开发/uniapp/uniapp框架与资源路径",
+      {title: "引入彩色图标iconfont", path: "/前端开发/uniapp/引入彩色图标iconfont"},
+      "/前端开发/uniapp/框架配置项 pages.json",
+    ]
   }
 ]
 
