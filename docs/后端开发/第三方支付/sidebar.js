@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "微信支付V3对接API",
+    title: "微信支付V3版本API对接指南",
     collapsable: false,
     children: [
       "/后端开发/第三方支付/微信支付V3/微信支付准备工作",
