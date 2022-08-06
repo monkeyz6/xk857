@@ -12,3 +12,7 @@ pages.json 文件用来对 uni-app 进行全局配置，决定页面文件的路
 
 参考：[https://uniapp.dcloud.io/collocation/pages](https://uniapp.dcloud.io/collocation/pages)
 
+
+## 全局配置
+
+### 状态栏和导航栏

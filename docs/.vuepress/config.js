@@ -3,7 +3,15 @@ module.exports = {
   title: 'CV大魔王的博客',
   description: '技术类笔记，在往全栈的路上努力奋斗，主攻java，擅长微服务。前端方面熟悉vue3，ts，uniapp，原生安卓。对设计模式有所了解，正在恶补数据结构和算法',
   head: [
-    ['link', {rel: 'icon', href: 'https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png'}]
+    [
+      'link', {rel: 'icon', href: 'https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png'},
+    ],
+    [
+      'link',  {href: "https://cdn.jsdelivr.net/npm/@docsearch/css@3", rel: "stylesheet"}
+    ],
+    [
+      'script', {src: "https://cdn.jsdelivr.net/npm/@docsearch/js@3"}
+    ]
   ],
 
   // theme: '@qcyblm/vpx',
@@ -48,6 +56,6 @@ module.exports = {
         moment.locale('zh-CN')
         return moment(timestamp).fromNow()
       }
-    }]
+    }],
   ]
 }
