@@ -34,6 +34,7 @@ module.exports = [
       "/前端开发/vue/uniapp/uni-app路由与页面跳转",
       "/前端开发/vue/uniapp/运行环境判断",
       "/前端开发/vue/uniapp/条件编译实现跨端兼容",
+      "/前端开发/vue/uniapp/网络请求及封装工具类",
     ]
   }
 ]
