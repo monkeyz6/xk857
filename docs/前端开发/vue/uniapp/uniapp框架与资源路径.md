@@ -1,5 +1,5 @@
 ---
-title: uniapp框架与资源路径
+title: uni-app框架与资源路径
 date: 2020-11-06 17:09
 categories:
 - uniapp
