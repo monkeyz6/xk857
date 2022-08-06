@@ -1,11 +1,11 @@
 ---
 title: pinia安装及初始化
-date: 2020-9-06 22:13
+date: 2022-08-06 23:17
 categories:
-- pinia
+- VueRouter
 - vue3
 tags:
-- pinia
+- VueRouter
 - vue3
 - vite
 ---
