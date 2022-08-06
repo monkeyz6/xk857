@@ -1,14 +1,15 @@
 ---
 title: uniapp框架与资源路径
-date: 2021-08-03 22:21
+date: 2021-11-06 17:09
 categories:
-- 插件开发
+- uniapp
+- vue
 tags:
-- 插件开发
+- uniapp
+- vue
 ---
 
 不需要专门去学习小程序的语法，uni-app使用的是vue的语法，不是小程序自定义的语法。
-
 <!-- more -->
 
 

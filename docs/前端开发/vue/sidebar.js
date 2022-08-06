@@ -29,7 +29,7 @@ module.exports = [
       "/前端开发/uniapp/入门与环境搭建",
       "/前端开发/uniapp/uniapp框架与资源路径",
       {title: "引入彩色图标iconfont", path: "/前端开发/uniapp/引入彩色图标iconfont"},
-      "/前端开发/uniapp/框架配置项 pages.json",
+      "/前端开发/uniapp/全局配置之状态栏与导航栏",
     ]
   }
 ]

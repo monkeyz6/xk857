@@ -1,11 +1,16 @@
 ---
-title: uniapp引入彩色图标iconfont
-date: 2021-08-03 22:30
+title: 引入彩色图标iconfont
+date: 2021-11-06 17:09
 categories:
-- 插件开发
+- uniapp
+- vue
 tags:
-- 插件开发
+- uniapp
+- vue
 ---
+
+
+<!-- more -->
 
 1. 进入阿里巴巴矢量图标库https://www.iconfont.cn/，添加图标到项目，然后下载至本地
 ![阿里巴巴下载图标](https://oss.xk857.com/images/20220803/9186e35bc84f4fcca798aa28002c3200.png)
