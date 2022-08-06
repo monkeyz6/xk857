@@ -20,6 +20,7 @@ module.exports = [
     children: [
       "/前端开发/vue/Pinia/pinia安装及初始化",
       "/前端开发/vue/Pinia/pinia的基本使用",
+      "/前端开发/vue/Pinia/VueRouter的安装及定义",
     ]
   }, {
     title: "vue引入第三方框架",
