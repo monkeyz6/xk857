@@ -1,6 +1,6 @@
 ---
 title: pinia的使用方式
-date: 2020-9-06 22:16
+date: 2022-08-06 22:16
 categories:
 - pinia
 - vue3
