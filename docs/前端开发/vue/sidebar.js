@@ -18,7 +18,8 @@ module.exports = [
     title: "Vue3的路由与状态管理",
     collapsable: false,
     children: [
-      "/前端开发/vue/Pinia/pinia安装及初始化"
+      "/前端开发/vue/Pinia/pinia安装及初始化",
+      "/前端开发/vue/Pinia/pinia的基本使用",
     ]
   }, {
     title: "vue引入第三方框架",

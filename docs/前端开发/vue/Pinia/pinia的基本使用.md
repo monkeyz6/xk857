@@ -1,5 +1,5 @@
 ---
-title: pinia的基本使用
+title: pinia的使用方式
 date: 2020-9-06 22:16
 categories:
 - pinia
