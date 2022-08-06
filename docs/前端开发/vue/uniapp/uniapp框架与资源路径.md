@@ -1,6 +1,6 @@
 ---
 title: uniapp框架与资源路径
-date: 2021-11-06 17:09
+date: 2020-11-06 17:09
 categories:
 - uniapp
 - vue
