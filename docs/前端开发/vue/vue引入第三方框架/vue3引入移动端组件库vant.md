@@ -2,9 +2,9 @@
 title: vue3引入移动端组件库vant
 date: 2021-08-03 15:13
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

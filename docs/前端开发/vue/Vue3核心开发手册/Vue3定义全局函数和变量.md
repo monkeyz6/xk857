@@ -2,9 +2,9 @@
 title: Vue3定义全局函数和变量
 date: 2021-08-03 12:03
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

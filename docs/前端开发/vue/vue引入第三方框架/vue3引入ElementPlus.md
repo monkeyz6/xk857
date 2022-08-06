@@ -2,9 +2,9 @@
 title: vue3引入ElementPlus
 date: 2021-08-03 14:26
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

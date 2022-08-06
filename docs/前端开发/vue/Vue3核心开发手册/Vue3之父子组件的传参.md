@@ -2,9 +2,9 @@
 title: Vue3之父子组件的传参
 date: 2021-08-03 09:46
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

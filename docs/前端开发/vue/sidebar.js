@@ -15,6 +15,12 @@ module.exports = [
       "/前端开发/vue/Vue3核心开发手册/Vue3定义全局函数和变量",
     ]
   }, {
+    title: "Vue3的路由与状态管理",
+    collapsable: false,
+    children: [
+      "/前端开发/vue/Pinia/vue3引入ElementPlus"
+    ]
+  }, {
     title: "vue引入第三方框架",
     collapsable: false,
     children: [

@@ -2,9 +2,9 @@
 title: Vue3全局组件与局部组件
 date: 2021-08-03 10:34
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

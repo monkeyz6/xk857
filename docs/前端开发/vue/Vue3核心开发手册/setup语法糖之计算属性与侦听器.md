@@ -2,9 +2,9 @@
 title: setup语法糖之计算属性与侦听器
 date: 2021-08-02 22:01
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

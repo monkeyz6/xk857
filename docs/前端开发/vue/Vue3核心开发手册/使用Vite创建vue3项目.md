@@ -2,9 +2,9 @@
 title: 使用Vite创建vue3项目
 date: 2021-08-02 17:23
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

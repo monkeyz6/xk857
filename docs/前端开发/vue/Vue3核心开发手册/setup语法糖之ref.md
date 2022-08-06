@@ -2,9 +2,9 @@
 title: setup语法糖之ref
 date: 2021-08-02 19:45
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 

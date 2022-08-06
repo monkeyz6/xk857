@@ -2,9 +2,9 @@
 title: setup语法糖之reactive
 date: 2021-08-02 20:23
 categories:
-- vue
+- vue3
 tags:
-- vue
+- vue3
 - vite
 ---
 
