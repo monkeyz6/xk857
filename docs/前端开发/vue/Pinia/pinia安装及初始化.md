@@ -29,8 +29,6 @@ Vue3默认的全局状态管理工具已经从Vuex更换为[Pinia](https://pinia
 npm install pinia
 ```
 
-
-
 ### Vue3引入并注册Pinia
 
 ```javascript
@@ -44,8 +42,6 @@ app.use(createPinia())
 app.use(router)
 app.mount('#app')
 ```
-
-
 
 ### 初始化仓库Store
 
@@ -71,7 +67,6 @@ export const useCounterStore = defineStore({
   }
 })
 ```
-
 
 
 ### 补充说明
