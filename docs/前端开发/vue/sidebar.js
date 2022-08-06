@@ -20,11 +20,11 @@ module.exports = [
     children: [
       "/前端开发/vue/Pinia/pinia安装及初始化",
       "/前端开发/vue/Pinia/pinia的基本使用",
-      "/前端开发/vue/Pinia/VueRouter的安装及定义",
-      "/前端开发/vue/Pinia/普通路由的跳转与传参",
-      "/前端开发/vue/Pinia/动态路由的跳转与传参",
-      "/前端开发/vue/Pinia/VueRouter4之命名视图",
-      "/前端开发/vue/Pinia/VueRouter路由导航守卫",
+      "/前端开发/vue/router/VueRouter的安装及定义",
+      "/前端开发/vue/router/普通路由的跳转与传参",
+      "/前端开发/vue/router/动态路由的跳转与传参",
+      "/前端开发/vue/router/VueRouter4之命名视图",
+      "/前端开发/vue/router/VueRouter路由导航守卫",
     ]
   }, {
     title: "vue引入第三方框架",
