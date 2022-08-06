@@ -22,6 +22,7 @@ module.exports = [
       "/前端开发/vue/Pinia/pinia的基本使用",
       "/前端开发/vue/Pinia/VueRouter的安装及定义",
       "/前端开发/vue/Pinia/普通路由的跳转与传参",
+      "/前端开发/vue/Pinia/动态路由的跳转与传参",
     ]
   }, {
     title: "vue引入第三方框架",
