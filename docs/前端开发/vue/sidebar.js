@@ -24,6 +24,7 @@ module.exports = [
       "/前端开发/vue/Pinia/普通路由的跳转与传参",
       "/前端开发/vue/Pinia/动态路由的跳转与传参",
       "/前端开发/vue/Pinia/VueRouter4之命名视图",
+      "/前端开发/vue/Pinia/VueRouter路由导航守卫",
     ]
   }, {
     title: "vue引入第三方框架",
