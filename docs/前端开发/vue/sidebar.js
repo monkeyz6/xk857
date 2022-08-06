@@ -26,14 +26,14 @@ module.exports = [
     title: "uniapp开发备忘录",
     collapsable: false,
     children: [
-      "/前端开发/uniapp/入门与环境搭建",
-      "/前端开发/uniapp/uniapp框架与资源路径",
-      {title: "引入彩色图标iconfont", path: "/前端开发/uniapp/引入彩色图标iconfont"},
-      "/前端开发/uniapp/全局配置之状态栏与导航栏",
-      "/前端开发/uniapp/下拉刷新和上拉触底",
-      "/前端开发/uniapp/uni-app路由与页面跳转",
-      "/前端开发/uniapp/运行环境判断",
-      "/前端开发/uniapp/条件编译实现跨端兼容",
+      "/前端开发/vue/uniapp/入门与环境搭建",
+      "/前端开发/vue/uniapp/uniapp框架与资源路径",
+      {title: "引入彩色图标iconfont", path: "/前端开发/vue/uniapp/引入彩色图标iconfont"},
+      "/前端开发/vue/uniapp/全局配置之状态栏与导航栏",
+      "/前端开发/vue/uniapp/下拉刷新和上拉触底",
+      "/前端开发/vue/uniapp/uni-app路由与页面跳转",
+      "/前端开发/vue/uniapp/运行环境判断",
+      "/前端开发/vue/uniapp/条件编译实现跨端兼容",
     ]
   }
 ]
