@@ -5,7 +5,8 @@ module.exports = [
     children: [
       "/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus",
       "/后端开发/常用框架/MybatisPlus/MybatisPlus核心注解",
-      "/后端开发/常用框架/MybatisPlus/常用的增删改查方法",
+      "/后端开发/常用框架/MybatisPlus/基础入门之增删改查",
+      "/后端开发/常用框架/MybatisPlus/MybatisPlus之分页操作",
     ]
   }
 ]
