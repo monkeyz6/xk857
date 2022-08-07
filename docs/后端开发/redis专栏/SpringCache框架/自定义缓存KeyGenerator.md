@@ -3,9 +3,11 @@ title: 自定义缓存KeyGenerator
 date: 2022-08-01 22:54
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 - SpringCache
 - java注解

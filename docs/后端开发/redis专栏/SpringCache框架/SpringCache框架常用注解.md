@@ -3,9 +3,11 @@ title: SpringCache框架常用注解
 date: 2022-08-01 22:39
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 - SpringCache
 - java注解

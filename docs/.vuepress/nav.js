@@ -18,6 +18,10 @@ module.exports = [
         text: '第三方支付',
         icon: 'iconfont icon-weixinzhifu',
         link: '/后端开发/第三方支付/微信支付V3/微信支付准备工作'
+      }, {
+        text: '常用框架',
+        icon: 'iconfont icon-shujuku',
+        link: '/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus'
       }
     ]
   },

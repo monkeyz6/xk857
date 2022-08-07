@@ -3,6 +3,7 @@ title: Hash结构实战之淘宝短链接
 date: 2022-08-01 15:50
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
