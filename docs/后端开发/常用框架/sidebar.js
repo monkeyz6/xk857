@@ -12,6 +12,7 @@ module.exports = [
       "/后端开发/常用框架/MybatisPlus/MybatisPlus使用乐观锁",
       "/后端开发/常用框架/MybatisPlus/MybatisPlus自动填充功能",
       "/后端开发/常用框架/MybatisPlus/MybatisPlus之逻辑删除",
+      "/后端开发/常用框架/MybatisPlus/MybatisPlus之代码生成器",
     ]
   }
 ]

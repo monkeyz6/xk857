@@ -12,12 +12,18 @@ module.exports = [
       "/数据库/新零售行业数据库设计/快递表、退货表与评价表设计",
       "/数据库/新零售行业数据库设计/供应商与入库表设计",
     ]
-  },{
+  }, {
     title: "数据库的安装",
     collapsable: false,
     children: [
       "/数据库/数据库的安装/win系统MySQL升级到5.7",
       "/数据库/数据库的安装/使用Docker安装MySQL5.7",
+    ]
+  }, {
+    title: "数据库常见问题及解决方案",
+    collapsable: false,
+    children: [
+      "/数据库/常见问题及解决方案/",
     ]
   }
 ]
