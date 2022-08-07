@@ -1,11 +1,6 @@
 ---
 title: Swagger3的引入及配置
 date: 2021-04-16 19:34
-categories:
-- SpringBoot
-tags:
-- SpringBoot
-- Swagger
 ---
 
 ### 公共模块引入
