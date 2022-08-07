@@ -3,9 +3,11 @@ title: RocketMQ入门实战
 date: 2021-07-31 19:57
 categories:
 - 中间件
+- SpringBoot
 tags:
 - 消息队列
 - RocketMQ
+- SpringBoot
 - 中间件
 ---
 
