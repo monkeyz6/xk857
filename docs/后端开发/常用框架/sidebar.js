@@ -19,6 +19,15 @@ module.exports = [
     collapsable: false,
     children: [
       "/后端开发/常用框架/Swagger3/Swagger3的引入及配置",
+      "/后端开发/常用框架/Swagger3/描述类、方法和对象的作用",
+      "/后端开发/常用框架/Swagger3/请求方法相关注解的使用",
+    ]
+  },{
+    title: "SpringBootAdmin",
+    collapsable: false,
+    children: [
+      "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin概述",
+      "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin依赖引入",
     ]
   }
 ]
