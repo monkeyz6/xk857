@@ -24,8 +24,30 @@ SpringBoot项目引入依赖
 </dependency>
 ```
 
-然后在application.yml配置文件中配置数据库地址，这些就不罗嗦了。先建立pojo类
+然后在application.yml配置文件中配置数据库地址等。
+```yaml
+mybatis-plus:
+  # 指定全局配置文件
+  config-location: classpath:mybatis-config.xml
+  # 配置接口所对应的xml文件
+  mapper-locations: classpath*:mybatis/*.xml
+  # 指定别名路径 编写xml时resultMap每次都需要写全路径，配置此项后，仅编写对应实体类即可
+  type-aliases-package: com.xk857.pojo
+  configuration:
+    # 关闭自动驼峰映射，该参数不能和mybatis-plus.config-location同时存在
+    map-underscore-to-camel-case: false
+    # 全局地开启或关闭配置文件中的所有映射器已经配置的任何缓存，默认为 true。
+    cache-enabled: false
+  global-config:
+    db-config:
+      # 全局默认主键类型，设置后，即可省略实体对象中的@TableId(type = IdType.AUTO)配置。
+      id-type: auto
+      # 表名前缀，全局配置后可省略@TableName()配置。
+      table-prefix: tb_
+```
 
+
+### 1.建立pojo类
 ```java
 @Data
 @TableName("tb_user") // 设置表名
@@ -44,14 +66,14 @@ public class User {
 }
 ```
 
-编写Mapper
+### 2.编写Mapper
 ```java 
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 }
 ```
 
-service
+### 3.service
 ```java 
 public interface UserService {
 
@@ -60,7 +82,7 @@ public interface UserService {
 }
 ```
 
-serviceImpl
+### 4.serviceImpl
 ```java 
 @Service
 public class UserServiceImpl implements UserService {
@@ -76,7 +98,7 @@ public class UserServiceImpl implements UserService {
 ```
 
 
-Controller
+### 5.Controller
 ```java 
 @RestController
 @RequestMapping("api/vi/pub/user")

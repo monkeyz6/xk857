@@ -11,11 +11,11 @@ tags:
 - SpringBoot
 ---
 
-
+MybatisPlus的分页API不能直接使用，创建配置类配置好分页插件，MybatisPlus的分页功能才能正常使用。
 <!-- more -->
 
 ### 创建配置类
-创建配置类配置好分页插件，MybatisPlus的分页功能才能正常使用。
+
 ```java 
 @Configuration
 public class MyBatisConfig {
@@ -30,7 +30,7 @@ public class MyBatisConfig {
 ```
 
 
-**Service**
+### Service
 ```java
 public interface UserService {
 
@@ -43,7 +43,7 @@ public interface UserService {
     Page<User> selectPage(Integer current,Integer size);
 }
 ```
-**ServiceImpl**
+### ServiceImp
 ```java
 @Service
 public class UserServiceImpl implements UserService {
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
 ```
 
 
-**Controller
+### Controller
 ```java
 @RestController
 @RequestMapping("api/vi/pub/user")
