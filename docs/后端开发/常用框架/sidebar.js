@@ -7,6 +7,7 @@ module.exports = [
       "/后端开发/常用框架/MybatisPlus/MybatisPlus核心注解",
       "/后端开发/常用框架/MybatisPlus/基础入门之增删改查",
       "/后端开发/常用框架/MybatisPlus/MybatisPlus之分页操作",
+      "/后端开发/常用框架/MybatisPlus/MP核心操作之条件构造器",
     ]
   }
 ]
