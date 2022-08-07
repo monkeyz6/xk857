@@ -1,14 +1,10 @@
 ---
 title: 主键使用数字类型还是UUID
-date: 2021-04-02 19:09
+date: 2021-04-16 19:12
 categories:
-- java
-- MybatisPlus
-- SpringBoot
+- MySQL
 tags:
-- MybatisPlus
-- java
-- SpringBoot
+- MySQL
 ---
 
 UUID是通用唯─识别码的缩写，其目的是让分布式系统中的所有元素，都能有唯一的辨识信息，而不需要通过中央控制端来做辨识信息的指定。
