@@ -14,6 +14,12 @@ module.exports = [
       "/后端开发/常用框架/MybatisPlus/MybatisPlus之逻辑删除",
       "/后端开发/常用框架/MybatisPlus/MybatisPlus之代码生成器",
     ]
+  },{
+    title: "后端接口文档Swagger3",
+    collapsable: false,
+    children: [
+      "/后端开发/常用框架/Swagger3/Swagger3的引入及配置",
+    ]
   }
 ]
 
