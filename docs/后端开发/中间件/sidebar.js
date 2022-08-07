@@ -7,6 +7,7 @@ module.exports = [
       "/后端开发/中间件/RabbitMQ/使用Docker安装RabbitMQ",
       "/后端开发/中间件/RabbitMQ/SpringBoot整合RabbitMQ",
       "/后端开发/中间件/RabbitMQ/发送消息与接收消息",
+      "/后端开发/中间件/RabbitMQ/RabbitMQ消息可靠性投递",
     ]
   },
   {
