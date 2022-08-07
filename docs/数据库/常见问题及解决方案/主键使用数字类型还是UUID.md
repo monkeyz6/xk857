@@ -1,5 +1,5 @@
 ---
-title: 主键使用数字类型还是UUID
+title: 主键使用数字类型还是UUID？
 date: 2021-04-16 19:12
 categories:
 - MySQL
