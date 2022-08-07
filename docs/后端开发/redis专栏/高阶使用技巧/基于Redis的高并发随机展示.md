@@ -3,9 +3,11 @@ title: 基于Redis的高并发随机展示 - Set实战之QQ群、微博好友随
 date: 2022-08-01 19:47
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

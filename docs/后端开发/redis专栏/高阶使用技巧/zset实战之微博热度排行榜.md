@@ -3,9 +3,11 @@ title: zset实战之微博热度排行榜
 date: 2022-08-01 20:02
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 
