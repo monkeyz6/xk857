@@ -51,4 +51,56 @@ spring:
     username: admin
 ```
 
+### 创建配置类RabbitMQConfig
+首先定义交换机和队列的名称，然后使用Bean注入的方式，注入交换机和队列对象，最后再绑定二者关系，**注意导包**
+```java
+package com.xk857.config;
 
+import org.springframework.amqp.core.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+/**
+ * @author cv大魔王
+ * @version 1.0
+ * @description
+ * @date 2022/8/7
+ */
+@Configuration
+public class RabbitMQConfig {
+
+    /**
+     * 交换机名称
+     */
+    public static final String EXCHANGE_NAME = "order_exchange";
+
+    /**
+     * 队列名称
+     */
+    public static final String QUEUE = "order_queue";
+
+
+    @Bean
+    public Exchange orderExchange() {
+        // 创建交换机，durable代表持久化，使用Bean注入
+        return ExchangeBuilder.topicExchange(EXCHANGE_NAME).durable(true).build();
+    }
+
+    @Bean
+    public Queue orderQueue() {
+        // 创建队列，使用Bean注入
+        return QueueBuilder.durable(QUEUE).build();
+    }
+
+    /**
+     * 交换机和队列绑定关系
+     * @param queue 上面注入的队列Bean，如果你的项目又多个，记得给Bean取名字
+     * @param exchange 上面注入的交换机Bean
+     */
+    @Bean
+    public Binding orderBinding(Queue queue, Exchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("order.#").noargs();
+    }
+
+}
+```
