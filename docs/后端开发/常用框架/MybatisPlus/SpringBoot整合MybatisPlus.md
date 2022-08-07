@@ -16,10 +16,11 @@ MyBatis-Plus是一个MyBatis的增强工具，在MyBatis的基础上只做增强
 
 SpringBoot项目引入依赖
 ```xml
+<!--mybatis-plus-->
 <dependency>
     <groupId>com.baomidou</groupId>
-    <artifactId>mybatis-plus</artifactId>
-    <version>3.4.2</version>
+    <artifactId>mybatis-plus-boot-starter</artifactId>
+    <version>3.4.3.1</version>
 </dependency>
 ```
 
