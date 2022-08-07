@@ -28,6 +28,7 @@ module.exports = [
     children: [
       "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin概述",
       "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin依赖引入",
+      "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin服务配置",
     ]
   }
 ]
