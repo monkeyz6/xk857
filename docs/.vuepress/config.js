@@ -7,7 +7,7 @@ module.exports = {
       'link', {rel: 'icon', href: 'https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png'},
     ],
     [
-      'link',  {href: "https://cdn.jsdelivr.net/npm/@docsearch/css@3", rel: "stylesheet"}
+      'link', {href: "https://cdn.jsdelivr.net/npm/@docsearch/css@3", rel: "stylesheet"}
     ],
     [
       'script', {src: "https://cdn.jsdelivr.net/npm/@docsearch/js@3"}
@@ -44,6 +44,11 @@ module.exports = {
     }
   },
   plugins: [
+    ["vuepress-plugin-code-copy", {
+      successText: "复制成功",
+      color: "#3eaf7c",
+      backgroundColor: "#d8efe5"
+    }],
     '@vuepress/active-header-links', {sidebarLinkSelector: '.sidebar-link', headerAnchorSelector: '.header-anchor'},
     '@vuepress/back-to-top',
     '@vuepress/last-updated',
