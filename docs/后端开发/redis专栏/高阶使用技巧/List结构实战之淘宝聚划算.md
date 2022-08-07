@@ -3,9 +3,11 @@ title: List结构实战之淘宝聚划算
 date: 2022-08-02 12:12
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

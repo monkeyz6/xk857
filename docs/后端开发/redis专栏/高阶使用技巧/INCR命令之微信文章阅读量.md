@@ -3,9 +3,11 @@ title: INCR命令之微信文章阅读量
 date: 2022-08-02 10:52
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

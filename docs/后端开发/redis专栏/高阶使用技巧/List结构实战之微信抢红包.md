@@ -3,9 +3,11 @@ title: List结构实战之微信抢红包
 date: 2022-08-02 13:36
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 像微信抢红包的高峰期一般是在年底公司开年会和春节2个时间段，高峰的并发量是在几千万以上。

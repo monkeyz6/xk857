@@ -3,9 +3,11 @@ title: List数据结构之微信文章阅读量优化
 date: 2022-08-02 11:32
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

@@ -3,9 +3,11 @@ title: Redis概述及基本使用
 date: 2022-08-01 14:14
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

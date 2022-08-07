@@ -3,9 +3,11 @@ title: Set实战之用户画像标签去重
 date: 2022-08-01 15:37
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

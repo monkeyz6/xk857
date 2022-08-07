@@ -3,9 +3,11 @@ title: List结构实战之每日热销榜单
 date: 2022-08-01 15:07
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 

@@ -3,9 +3,11 @@ title: Hash结构实战之电商购物车
 date: 2022-08-01 15:29
 categories:
 - java
+- SpringBoot
 - Redis
 tags:
 - java
+- SpringBoot
 - Redis
 ---
 
