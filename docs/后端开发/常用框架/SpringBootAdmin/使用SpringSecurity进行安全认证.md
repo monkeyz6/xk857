@@ -39,7 +39,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 121.5.139.26:8848
+        server-addr: 121.15.111.26:8848
         metadata:
           management:
             context-path: ${server.servlet.context-path}/actuator
