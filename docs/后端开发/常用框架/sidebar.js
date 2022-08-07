@@ -9,6 +9,7 @@ module.exports = [
       "/后端开发/常用框架/MybatisPlus/MybatisPlus之分页操作",
       "/后端开发/常用框架/MybatisPlus/MP核心操作之条件构造器",
       "/后端开发/常用框架/MybatisPlus/MP里面的ActiveRecord",
+      "/后端开发/常用框架/MybatisPlus/MybatisPlus使用乐观锁",
     ]
   }
 ]
