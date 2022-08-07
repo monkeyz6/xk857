@@ -5,6 +5,7 @@ module.exports = [
     children: [
       "/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题",
       "/后端开发/中间件/RabbitMQ/使用Docker安装RabbitMQ",
+      "/后端开发/中间件/RabbitMQ/SpringBoot整合RabbitMQ",
     ]
   },
   {
