@@ -4,8 +4,10 @@ date: 2022-08-01 22:28
 categories:
 - java
 - Redis
+- SpringBoot
 tags:
 - java
+- SpringBoot
 - Redis
 - SpringCache
 - java注解
