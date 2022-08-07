@@ -1,5 +1,5 @@
 ---
-title: SpringBootAdmin使用SpirngSecurity进行安全认证
+title: SpringBootAdmin使用SpringSecurity进行安全认证
 date: 2021-10-07 20:39
 categories:
 - SpringBoot

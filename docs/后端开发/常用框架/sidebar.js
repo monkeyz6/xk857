@@ -29,7 +29,8 @@ module.exports = [
       "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin概述",
       "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin依赖引入",
       "/后端开发/常用框架/SpringBootAdmin/SpringBootAdmin服务配置",
-      {title: "List之微信文章阅读量优化",path: "/后端开发/常用框架/SpringBootAdmin/使用SpirngSecurity进行安全认证"},
+      {title: "使用SpringSecurity安全认证",path: "/后端开发/常用框架/SpringBootAdmin/使用SpringSecurity进行安全认证"},
+      "/后端开发/常用框架/SpringBootAdmin/配置自定义告警邮件通知",
     ]
   }
 ]
