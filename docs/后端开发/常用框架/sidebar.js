@@ -4,7 +4,7 @@ module.exports = [
     collapsable: false,
     children: [
       "/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus",
-      "/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus",
+      "/后端开发/常用框架/MybatisPlus/MybatisPlus核心注解",
     ]
   }
 ]
