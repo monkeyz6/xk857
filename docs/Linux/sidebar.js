@@ -7,6 +7,12 @@ module.exports = [
       "/Linux/Centos7/文件列表的详细信息",
       "/Linux/Centos7/vim编辑器使用指南",
     ]
+  },{
+    title: "Shell编程",
+    collapsable: false,
+    children: [
+      "/Linux/shell/Shell编程入门与基础语法"
+    ]
   }
 ]
 

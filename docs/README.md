@@ -1,9 +1,9 @@
 ---
 home: true
-heroImage: https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/logo.png
+heroImage: https://oss.xk857.com/images/20220808/LGGO_MINI.png
 heroText: 星空小屋
 bgImageStyle: {
-  height: '400px'
+  height: '420px'
 }
 tagline: 记录成长，探索未来，持续学习
 actionText: 开始探索 →
