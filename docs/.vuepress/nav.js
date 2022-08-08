@@ -48,6 +48,7 @@ module.exports = [
   {text: '微服务专栏', icon: 'iconfont icon-mseweifuwuyinqing', link: '/微服务/SpringCloudAlibaba/分布式架构理论'},
   {text: '插件开发', icon: 'iconfont icon-menu_cjgl', link: '/插件开发/IDEA插件开发常用API/插件开发之创建菜单'},
   {text: 'Spring专栏', icon: 'iconfont icon-Leaf', link: '/Spring专栏/SpringBoot使用技巧/面向切面编程AOP'},
+  {text: 'Linux', icon: 'iconfont icon-centos', link: '/Linux/Centos7/Linux常用命令'},
   {text: '关于', icon: 'iconfont icon-f-about', link: '/about/'},
   {text: '时间轴', link: '/timeline/', icon: 'reco-date'}
 ]
