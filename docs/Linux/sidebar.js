@@ -4,6 +4,7 @@ module.exports = [
     collapsable: false,
     children: [
       "/Linux/Centos7/Linux常用命令",
+      "/Linux/Centos7/文件列表的详细信息",
     ]
   }
 ]
