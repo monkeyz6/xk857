@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>创建订单的封装及使用 | 星空小屋</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="https://oss.xk857.com/images/20220808/3a23288316be4f1d9e29453ceba07eb4.png">
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+    <meta name="description" content="技术类笔记，在往全栈的路上努力奋斗，主攻java，擅长微服务。前端方面熟悉vue3，ts，uniapp，原生安卓。对设计模式有所了解，正在恶补数据结构和算法">
+    
+    <link rel="preload" href="/assets/css/0.styles.40b1bf02.css" as="style"><link rel="preload" href="/assets/js/app.2efc3365.js" as="script"><link rel="preload" href="/assets/js/4.a8f326f7.js" as="script"><link rel="preload" href="/assets/js/1.8aa3fbce.js" as="script"><link rel="preload" href="/assets/js/118.39b2b9b3.js" as="script"><link rel="prefetch" href="/assets/js/10.9a0c7fd7.js"><link rel="prefetch" href="/assets/js/100.293051a5.js"><link rel="prefetch" href="/assets/js/101.7ee08d5e.js"><link rel="prefetch" href="/assets/js/102.cd82417d.js"><link rel="prefetch" href="/assets/js/103.7994aedf.js"><link rel="prefetch" href="/assets/js/104.6a42d90e.js"><link rel="prefetch" href="/assets/js/105.ef398d71.js"><link rel="prefetch" href="/assets/js/106.652ec686.js"><link rel="prefetch" href="/assets/js/107.478e3dc4.js"><link rel="prefetch" href="/assets/js/108.f239f09d.js"><link rel="prefetch" href="/assets/js/109.ca399df0.js"><link rel="prefetch" href="/assets/js/11.2b59d46b.js"><link rel="prefetch" href="/assets/js/110.af4ba74e.js"><link rel="prefetch" href="/assets/js/111.5252e273.js"><link rel="prefetch" href="/assets/js/112.4d5c4260.js"><link rel="prefetch" href="/assets/js/113.ab8de103.js"><link rel="prefetch" href="/assets/js/114.9d13e0e5.js"><link rel="prefetch" href="/assets/js/115.71cd5abf.js"><link rel="prefetch" href="/assets/js/116.20833a7f.js"><link rel="prefetch" href="/assets/js/117.23f5644d.js"><link rel="prefetch" href="/assets/js/119.5f41b41d.js"><link rel="prefetch" href="/assets/js/12.467256da.js"><link rel="prefetch" href="/assets/js/120.861a304f.js"><link rel="prefetch" href="/assets/js/121.272f1cb8.js"><link rel="prefetch" href="/assets/js/122.b65200bf.js"><link rel="prefetch" href="/assets/js/123.89a8b7a2.js"><link rel="prefetch" href="/assets/js/124.3c4004fd.js"><link rel="prefetch" href="/assets/js/125.83551166.js"><link rel="prefetch" href="/assets/js/126.0ff194f8.js"><link rel="prefetch" href="/assets/js/127.28b179ff.js"><link rel="prefetch" href="/assets/js/128.182d42b3.js"><link rel="prefetch" href="/assets/js/129.bb0e792d.js"><link rel="prefetch" href="/assets/js/13.d22a933e.js"><link rel="prefetch" href="/assets/js/130.3035ba12.js"><link rel="prefetch" href="/assets/js/131.2015e456.js"><link rel="prefetch" href="/assets/js/132.9fccd503.js"><link rel="prefetch" href="/assets/js/133.84ec154e.js"><link rel="prefetch" href="/assets/js/134.10fe3ff4.js"><link rel="prefetch" href="/assets/js/135.00d01320.js"><link rel="prefetch" href="/assets/js/136.625cf0d7.js"><link rel="prefetch" href="/assets/js/137.d01a5cf4.js"><link rel="prefetch" href="/assets/js/138.3dff7afd.js"><link rel="prefetch" href="/assets/js/139.c75a65cd.js"><link rel="prefetch" href="/assets/js/14.1b478c0c.js"><link rel="prefetch" href="/assets/js/140.bf1a2021.js"><link rel="prefetch" href="/assets/js/141.84a096c4.js"><link rel="prefetch" href="/assets/js/142.4ccaa0d1.js"><link rel="prefetch" href="/assets/js/143.b73dad4c.js"><link rel="prefetch" href="/assets/js/144.927fb6db.js"><link rel="prefetch" href="/assets/js/145.a5730caf.js"><link rel="prefetch" href="/assets/js/146.0c18f576.js"><link rel="prefetch" href="/assets/js/147.0b8b8026.js"><link rel="prefetch" href="/assets/js/148.373fc45b.js"><link rel="prefetch" href="/assets/js/149.4722d769.js"><link rel="prefetch" href="/assets/js/15.e87a149e.js"><link rel="prefetch" href="/assets/js/150.a3b4b8d9.js"><link rel="prefetch" href="/assets/js/151.2815b9f2.js"><link rel="prefetch" href="/assets/js/152.6d40953a.js"><link rel="prefetch" href="/assets/js/16.2d778be2.js"><link rel="prefetch" href="/assets/js/17.a53f5ce6.js"><link rel="prefetch" href="/assets/js/18.69b84dac.js"><link rel="prefetch" href="/assets/js/19.0326e43a.js"><link rel="prefetch" href="/assets/js/20.0e781c0b.js"><link rel="prefetch" href="/assets/js/21.2b0d73e2.js"><link rel="prefetch" href="/assets/js/22.1c50d7a9.js"><link rel="prefetch" href="/assets/js/23.3d51afcb.js"><link rel="prefetch" href="/assets/js/24.701990f1.js"><link rel="prefetch" href="/assets/js/25.ca903e97.js"><link rel="prefetch" href="/assets/js/26.c84bb6d3.js"><link rel="prefetch" href="/assets/js/27.fee96a3c.js"><link rel="prefetch" href="/assets/js/28.ee5c77b4.js"><link rel="prefetch" href="/assets/js/29.43a10e9e.js"><link rel="prefetch" href="/assets/js/30.d9b8e8eb.js"><link rel="prefetch" href="/assets/js/31.efce4846.js"><link rel="prefetch" href="/assets/js/32.a832c97e.js"><link rel="prefetch" href="/assets/js/33.1de52054.js"><link rel="prefetch" href="/assets/js/34.ef81e22c.js"><link rel="prefetch" href="/assets/js/35.4024ba54.js"><link rel="prefetch" href="/assets/js/36.128632d6.js"><link rel="prefetch" href="/assets/js/37.978bfdc4.js"><link rel="prefetch" href="/assets/js/38.380801ac.js"><link rel="prefetch" href="/assets/js/39.6f42d2ab.js"><link rel="prefetch" href="/assets/js/40.359b53ef.js"><link rel="prefetch" href="/assets/js/41.f339471b.js"><link rel="prefetch" href="/assets/js/42.84bb68a6.js"><link rel="prefetch" href="/assets/js/43.bf95f079.js"><link rel="prefetch" href="/assets/js/44.4ce5ede2.js"><link rel="prefetch" href="/assets/js/45.516d18f5.js"><link rel="prefetch" href="/assets/js/46.f5331de5.js"><link rel="prefetch" href="/assets/js/47.3e897735.js"><link rel="prefetch" href="/assets/js/48.b9893207.js"><link rel="prefetch" href="/assets/js/49.7fb68456.js"><link rel="prefetch" href="/assets/js/5.b7192139.js"><link rel="prefetch" href="/assets/js/50.9bfe2160.js"><link rel="prefetch" href="/assets/js/51.137953a9.js"><link rel="prefetch" href="/assets/js/52.c1f55eaa.js"><link rel="prefetch" href="/assets/js/53.8707748d.js"><link rel="prefetch" href="/assets/js/54.bf2a2fbe.js"><link rel="prefetch" href="/assets/js/55.49f125ba.js"><link rel="prefetch" href="/assets/js/56.fec639cf.js"><link rel="prefetch" href="/assets/js/57.c43467e1.js"><link rel="prefetch" href="/assets/js/58.9c4aef93.js"><link rel="prefetch" href="/assets/js/59.f2096c6b.js"><link rel="prefetch" href="/assets/js/6.59c468a4.js"><link rel="prefetch" href="/assets/js/60.755d71b9.js"><link rel="prefetch" href="/assets/js/61.f6b58963.js"><link rel="prefetch" href="/assets/js/62.28b0cbbe.js"><link rel="prefetch" href="/assets/js/63.37658f27.js"><link rel="prefetch" href="/assets/js/64.24f64688.js"><link rel="prefetch" href="/assets/js/65.7d2af358.js"><link rel="prefetch" href="/assets/js/66.cfb054a5.js"><link rel="prefetch" href="/assets/js/67.e1b0461b.js"><link rel="prefetch" href="/assets/js/68.05a66855.js"><link rel="prefetch" href="/assets/js/69.a09e4474.js"><link rel="prefetch" href="/assets/js/7.a7dceda1.js"><link rel="prefetch" href="/assets/js/70.9ce344b0.js"><link rel="prefetch" href="/assets/js/71.ae3f5e80.js"><link rel="prefetch" href="/assets/js/72.d2f7b5c9.js"><link rel="prefetch" href="/assets/js/73.d6241bd7.js"><link rel="prefetch" href="/assets/js/74.3e97a88a.js"><link rel="prefetch" href="/assets/js/75.526b55f2.js"><link rel="prefetch" href="/assets/js/76.2df95b19.js"><link rel="prefetch" href="/assets/js/77.dde9f653.js"><link rel="prefetch" href="/assets/js/78.7e6ff5d7.js"><link rel="prefetch" href="/assets/js/79.db990bcd.js"><link rel="prefetch" href="/assets/js/8.9788873e.js"><link rel="prefetch" href="/assets/js/80.59a9b523.js"><link rel="prefetch" href="/assets/js/81.e45b37df.js"><link rel="prefetch" href="/assets/js/82.ece208b2.js"><link rel="prefetch" href="/assets/js/83.6e500ef2.js"><link rel="prefetch" href="/assets/js/84.c32badad.js"><link rel="prefetch" href="/assets/js/85.1ea53c01.js"><link rel="prefetch" href="/assets/js/86.bc52094c.js"><link rel="prefetch" href="/assets/js/87.cb3eebdc.js"><link rel="prefetch" href="/assets/js/88.4f0671fa.js"><link rel="prefetch" href="/assets/js/89.1c920fbe.js"><link rel="prefetch" href="/assets/js/9.dd26be22.js"><link rel="prefetch" href="/assets/js/90.e9a875bd.js"><link rel="prefetch" href="/assets/js/91.368d5d2b.js"><link rel="prefetch" href="/assets/js/92.b09062c4.js"><link rel="prefetch" href="/assets/js/93.fc947d72.js"><link rel="prefetch" href="/assets/js/94.b47c8463.js"><link rel="prefetch" href="/assets/js/95.7fde070e.js"><link rel="prefetch" href="/assets/js/96.b96cc77e.js"><link rel="prefetch" href="/assets/js/97.094877fb.js"><link rel="prefetch" href="/assets/js/98.5a2d1617.js"><link rel="prefetch" href="/assets/js/99.bdfef821.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.11f69535.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.40b1bf02.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-5bb33761><div data-v-5bb33761><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-5bb33761 data-v-5bb33761><h3 class="title" data-v-59e6cb88>星空小屋</h3> <p class="description" data-v-59e6cb88>技术类笔记，在往全栈的路上努力奋斗，主攻java，擅长微服务。前端方面熟悉vue3，ts，uniapp，原生安卓。对设计模式有所了解，正在恶补数据结构和算法</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>cv大魔王</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2022
+      </a></span></div></div> <div class="hide" data-v-5bb33761><header class="navbar" data-v-5bb33761><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://oss.xk857.com/images/20220808/LGGO_MINI.png" alt="星空小屋" class="logo"> <span class="site-name">星空小屋</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-JavaCorefenxigongju"></i>
+      Java
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/后端开发/java/java高效编程常用技术优化手段/资源关闭优化方案.html" class="nav-link"><i class="iconfont icon-java"></i>
+  java开发技巧
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题.html" class="nav-link"><i class="iconfont icon-xiaoxiduilie"></i>
+  消息队列专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用.html" class="nav-link"><i class="iconfont icon-Redis"></i>
+  Redis专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/第三方支付/微信支付V3/微信支付准备工作.html" class="nav-link"><i class="iconfont icon-weixinzhifu"></i>
+  第三方支付
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus.html" class="nav-link"><i class="iconfont icon-shujuku"></i>
+  常用框架
+</a></li><li class="dropdown-item"><!----> <a href="/Spring专栏/SpringBoot使用技巧/面向切面编程AOP.html" class="nav-link"><i class="iconfont icon-Leaf"></i>
+  Spring专栏
+</a></li><li class="dropdown-item"><!----> <a href="/微服务/SpringCloudAlibaba/分布式架构理论.html" class="nav-link"><i class="iconfont icon-mseweifuwuyinqing"></i>
+  微服务专栏
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-codepen-circle-fill"></i>
+      前端开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/前端开发/vue/Vue3核心开发手册/使用Vite创建vue3项目.html" class="nav-link"><i class="iconfont icon-Vue"></i>
+  Vue框架
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/前端基础/css/CSS设计模式.html" class="nav-link"><i class="iconfont icon-sheji-xianxing"></i>
+  基础扩展
+</a></li></ul></div></div><div class="nav-item"><a href="/数据库/新零售行业数据库设计/" class="nav-link"><i class="iconfont icon-shujuku1"></i>
+  数据库
+</a></div><div class="nav-item"><a href="/插件开发/IDEA插件开发常用API/插件开发之创建菜单.html" class="nav-link"><i class="iconfont icon-menu_cjgl"></i>
+  插件开发
+</a></div><div class="nav-item"><a href="/Linux/Centos7/Linux常用命令.html" class="nav-link"><i class="iconfont icon-centos"></i>
+  Linux
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont icon-f-about"></i>
+  关于
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bb33761></div> <aside class="sidebar" data-v-5bb33761><div class="personal-info-wrapper" data-v-1fad0c41 data-v-5bb33761><img src="https://student-xk857.oss-cn-shanghai.aliyuncs.com/typora/2022/07/image-20220731204655849.png" alt="author-avatar" class="personal-img" data-v-1fad0c41> <h3 class="name" data-v-1fad0c41>
+    cv大魔王
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>141</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>27</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-JavaCorefenxigongju"></i>
+      Java
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/后端开发/java/java高效编程常用技术优化手段/资源关闭优化方案.html" class="nav-link"><i class="iconfont icon-java"></i>
+  java开发技巧
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题.html" class="nav-link"><i class="iconfont icon-xiaoxiduilie"></i>
+  消息队列专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用.html" class="nav-link"><i class="iconfont icon-Redis"></i>
+  Redis专栏
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/第三方支付/微信支付V3/微信支付准备工作.html" class="nav-link"><i class="iconfont icon-weixinzhifu"></i>
+  第三方支付
+</a></li><li class="dropdown-item"><!----> <a href="/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus.html" class="nav-link"><i class="iconfont icon-shujuku"></i>
+  常用框架
+</a></li><li class="dropdown-item"><!----> <a href="/Spring专栏/SpringBoot使用技巧/面向切面编程AOP.html" class="nav-link"><i class="iconfont icon-Leaf"></i>
+  Spring专栏
+</a></li><li class="dropdown-item"><!----> <a href="/微服务/SpringCloudAlibaba/分布式架构理论.html" class="nav-link"><i class="iconfont icon-mseweifuwuyinqing"></i>
+  微服务专栏
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont icon-codepen-circle-fill"></i>
+      前端开发
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/前端开发/vue/Vue3核心开发手册/使用Vite创建vue3项目.html" class="nav-link"><i class="iconfont icon-Vue"></i>
+  Vue框架
+</a></li><li class="dropdown-item"><!----> <a href="/前端开发/前端基础/css/CSS设计模式.html" class="nav-link"><i class="iconfont icon-sheji-xianxing"></i>
+  基础扩展
+</a></li></ul></div></div><div class="nav-item"><a href="/数据库/新零售行业数据库设计/" class="nav-link"><i class="iconfont icon-shujuku1"></i>
+  数据库
+</a></div><div class="nav-item"><a href="/插件开发/IDEA插件开发常用API/插件开发之创建菜单.html" class="nav-link"><i class="iconfont icon-menu_cjgl"></i>
+  插件开发
+</a></div><div class="nav-item"><a href="/Linux/Centos7/Linux常用命令.html" class="nav-link"><i class="iconfont icon-centos"></i>
+  Linux
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont icon-f-about"></i>
+  关于
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>微信支付V3版本API对接指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/后端开发/第三方支付/微信支付V3/微信支付准备工作.html" class="sidebar-link">微信支付准备工作</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付基本配置.html" class="sidebar-link">微信支付基本配置</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付之创建订单准备操作.html" class="sidebar-link">订单创建准备操作</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付之创建订单的封装及使用.html" class="active sidebar-link">创建订单的封装及使用</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付成功回调.html" class="sidebar-link">微信支付成功回调</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付查询订单API.html" class="sidebar-link">微信支付查询订单API</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付之申请退款.html" class="sidebar-link">微信支付之申请退款</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付之退款成功回调.html" class="sidebar-link">微信支付之退款成功回调</a></li><li><a href="/后端开发/第三方支付/微信支付V3/微信支付之商家转账API.html" class="sidebar-link">微信支付之商家转账API</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-5bb33761><h3 class="title" data-v-59e6cb88>创建订单的封装及使用</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>cv大魔王</span>
+          
+        <span data-v-59e6cb88>2020 - </span>
+        2022
+      </a></span></div></div> <div data-v-5bb33761><div data-v-5bb33761><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">创建订单的封装及使用</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>cv大魔王</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>11/4/2021</span></i> <i class="iconfont reco-eye" data-v-8a445198><span id="/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98V3/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%B9%8B%E5%88%9B%E5%BB%BA%E8%AE%A2%E5%8D%95%E7%9A%84%E5%B0%81%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-8a445198><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>java</span><span class="tag-item" data-v-8a445198>第三方服务</span><span class="tag-item" data-v-8a445198>微信支付</span></i></div></div> <div class="theme-reco-content content__default"><p>经过了<a href="/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98V3/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%B9%8B%E5%88%9B%E5%BB%BA%E8%AE%A2%E5%8D%95%E5%87%86%E5%A4%87%E6%93%8D%E4%BD%9C">微信支付之创建订单准备操作</a>的准备操作，接下来我们就能够非常快速的开发出各种支付类型的创建订单接口。
+</p> <p>商户Native支付下单接口，微信后台系统返回链接参数code_url，商户后台系统将code_url值生成二维码图片，用户使用微信客户端扫码后发起支付，也就是说后端只需要返回code_url即可。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+ * 创建微信支付订单-Native方式
+ *
+ * @param wxPayConfig 微信配置信息
+ * @param basePayData 基础请求信息，商品标题、商家订单id、订单价格
+ * @param wxPayClient 微信请求客户端（）
+ * @return 微信支付二维码地址
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">wxNativePay</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">,</span> <span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1.获取请求参数的Map格式</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> basePayData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 2.获取请求对象</span>
+    <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span><span class="token punctuation">.</span>NATIVE_PAY<span class="token punctuation">,</span> paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 3.完成签名并执行请求</span>
+    <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        response <span class="token operator">=</span> wxPayClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>httpPost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 4.解析response对象</span>
+    <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>resultMap <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// native请求返回的是二维码链接，前端将链接转换成二维码即可</span>
+        <span class="token keyword">return</span> resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;code_url&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>使用方式也很简单，通过注入的方式获取到wxPayConfig和wxPayClient对象后，创建支付请求参数对象，调用刚刚编写的wxNativePay方法即可。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span><span class="token string">&quot;1.支付测试接口&quot;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/pay/test&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">getCheckNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">WeChatBasePayData</span> payData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeChatBasePayData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payData<span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token string">&quot;支付测试商品&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payData<span class="token punctuation">.</span><span class="token function">setOrderId</span><span class="token punctuation">(</span><span class="token class-name">IdWorker</span><span class="token punctuation">.</span><span class="token function">getIdStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//测试时随机生成一个，代表订单号</span>
+    payData<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0.01&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payData<span class="token punctuation">.</span><span class="token function">setNotify</span><span class="token punctuation">(</span><span class="token class-name">WxNotifyType</span><span class="token punctuation">.</span>REFUND_NOTIFY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">String</span> path <span class="token operator">=</span> <span class="token class-name">WxPayCommon</span><span class="token punctuation">.</span><span class="token function">wxNativePay</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> payData<span class="token punctuation">,</span> wxPayClient<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>返回数据实例：weixin://wxpay/bizpayurl?pr=BcL4yGozz</p> <p>如何测试是否可用？把返回的字符复制到微信中，发送给任意人，然后点击，如果能弹出支付框代表成功。</p> <h3 id="创建微信支付订单jsapi方式"><a href="#创建微信支付订单jsapi方式" class="header-anchor">#</a> 创建微信支付订单JSAPI方式</h3> <p>商户系统先调用该接口在微信支付服务后台生成预支付交易单，返回正确的预支付交易会话标识后再按Native、JSAPI、APP等不同场景生成交易串调起支付。</p> <p>jsapi用在微信的环境，例如公众号、小程序等，jsapi与Native方式不同的地方就是，它需要认证用户信息，这个用户信息就是openid，这是需要通过用户登录你的小程序或者关注公众号来获取的。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">/**
+  * 创建微信支付订单-jsapi方式
+  * @param wxPayConfig 微信配置信息
+  * @param basePayData 基础请求信息，商品标题、商家订单id、订单价格
+  * @param openId 通过微信小程序或者公众号获取到用户的openId
+  * @param wxPayClient 微信请求客户端（）
+  * @return 微信支付二维码地址
+  */</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">wxJsApiPay</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">,</span> <span class="token class-name">String</span> openId<span class="token punctuation">,</span><span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1.获取请求参数的Map格式</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> basePayData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 1.1 添加支付者信息</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> payerMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payerMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;openid&quot;</span><span class="token punctuation">,</span>openId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;payer&quot;</span><span class="token punctuation">,</span>payerMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 2.获取请求对象</span>
+    <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span><span class="token punctuation">.</span>JSAPI_PAY<span class="token punctuation">,</span> paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 3.完成签名并执行请求</span>
+    <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        response <span class="token operator">=</span> wxPayClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>httpPost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 4.解析response对象</span>
+    <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>resultMap <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// native请求返回的是二维码链接，前端将链接转换成二维码即可</span>
+        <span class="token keyword">return</span> resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;prepay_id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>使用方式如下，相较于Native，改动的地方下方代码都标明了。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">;</span>    
+
+<span class="token annotation punctuation">@ApiOperation</span><span class="token punctuation">(</span><span class="token string">&quot;1.支付测试接口&quot;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">&quot;/pay/test&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">getCheckNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">WeChatBasePayData</span> payData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeChatBasePayData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payData<span class="token punctuation">.</span><span class="token function">setTitle</span><span class="token punctuation">(</span><span class="token string">&quot;支付测试商品&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payData<span class="token punctuation">.</span><span class="token function">setOrderId</span><span class="token punctuation">(</span><span class="token class-name">IdWorker</span><span class="token punctuation">.</span><span class="token function">getIdStr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//测试时随机生成一个</span>
+    payData<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;0.01&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    payData<span class="token punctuation">.</span><span class="token function">setNotify</span><span class="token punctuation">(</span><span class="token class-name">WxNotifyType</span><span class="token punctuation">.</span>REFUND_NOTIFY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// String path = WxPayCommon.wxNativePay(wxPayConfig, payData, wxPayClient);</span>
+    <span class="token comment">// 每个账户所关联的openId都是不一样的，你也别拿我的试，需要看你们项目的环境</span>
+    <span class="token class-name">String</span> path <span class="token operator">=</span> <span class="token class-name">WxPayCommon</span><span class="token punctuation">.</span><span class="token function">wxJsApiPay</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> payData<span class="token punctuation">,</span> <span class="token string">&quot;oS3tA4zspa1DYMK5zBYkZv9XMIqw&quot;</span><span class="token punctuation">,</span> wxPayClient<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>返回数据实例：wx041634439436321ff6c8e788ac69830000</p> <p>客户端JSAPI调起支付，这个就不属于服务器端了，各位去<a href="https://pay.weixin.qq.com/wiki/doc/apiv3/apis/chapter3_1_4.shtml" target="_blank" rel="noopener noreferrer">官方文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>自行查看吧</p> <h3 id="创建微信支付订单app支付方式"><a href="#创建微信支付订单app支付方式" class="header-anchor">#</a> 创建微信支付订单APP支付方式</h3> <p>App支付，单从文档来看，请求参数和Native一样，返回的数据类似于JSAPI，但是我的权限没有开通，所以这里只是理论可行，等我未来开通了APP支付再来测试。</p> <div class="language-java extra-class"><pre class="language-java"><code>    <span class="token comment">/**
+     * 创建微信支付订单-APP方式
+     *
+     * @param wxPayConfig 微信配置信息
+     * @param basePayData 基础请求信息，商品标题、商家订单id、订单价格
+     * @param wxPayClient 微信请求客户端（）
+     * @return 微信支付二维码地址
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">wxAppPay</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">,</span> <span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.获取请求参数的Map格式</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> basePayData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2.获取请求对象</span>
+        <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span><span class="token punctuation">.</span>APP_PAY<span class="token punctuation">,</span> paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3.完成签名并执行请求</span>
+        <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            response <span class="token operator">=</span> wxPayClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>httpPost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 4.解析response对象</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>resultMap <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// native请求返回的是二维码链接，前端将链接转换成二维码即可</span>
+            <span class="token keyword">return</span> resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;prepay_id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><p>使用方式和Native一样，这里就不展示了，返回数据实例：wx261153585405162d4d02642eabe7000000</p> <p>H5支付同理，把Native方法拷贝，改个地址即可，H5的返回参数是<code>h5_url</code>而不是<code>code_url</code></p> <h2 id="创建微信支付订单工具类"><a href="#创建微信支付订单工具类" class="header-anchor">#</a> 创建微信支付订单工具类</h2> <p>最后附上整体的微信支付工具类。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>card<span class="token punctuation">.</span>config<span class="token punctuation">.</span></span><span class="token class-name">WxPayConfig</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>card<span class="token punctuation">.</span>enums<span class="token punctuation">.</span>wxpay<span class="token punctuation">.</span></span><span class="token class-name">WxApiType</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>card<span class="token punctuation">.</span>exception<span class="token punctuation">.</span></span><span class="token class-name">DefaultException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>google<span class="token punctuation">.</span>gson<span class="token punctuation">.</span></span><span class="token class-name">Gson</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span>extern<span class="token punctuation">.</span>slf4j<span class="token punctuation">.</span></span><span class="token class-name">Slf4j</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>commons<span class="token punctuation">.</span>lang3<span class="token punctuation">.</span></span><span class="token class-name">StringUtils</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>client<span class="token punctuation">.</span>methods<span class="token punctuation">.</span></span><span class="token class-name">CloseableHttpResponse</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>client<span class="token punctuation">.</span>methods<span class="token punctuation">.</span></span><span class="token class-name">HttpPost</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>entity<span class="token punctuation">.</span></span><span class="token class-name">StringEntity</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>client<span class="token punctuation">.</span></span><span class="token class-name">CloseableHttpClient</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">EntityUtils</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>math<span class="token punctuation">.</span></span><span class="token class-name">BigDecimal</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">HashMap</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Map</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @author cv大魔王
+ * @version 1.0
+ * @date 2022/3/1 16:43
+ */</span>
+<span class="token annotation punctuation">@Slf4j</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WxPayCommon</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * 创建微信支付订单-Native方式
+     *
+     * @param wxPayConfig 微信配置信息
+     * @param basePayData 基础请求信息，商品标题、商家订单id、订单价格
+     * @param wxPayClient 微信请求客户端（）
+     * @return 微信支付二维码地址
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">wxNativePay</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">,</span> <span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.获取请求参数的Map格式</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> basePayData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2.获取请求对象</span>
+        <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span><span class="token punctuation">.</span>NATIVE_PAY<span class="token punctuation">,</span> paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3.完成签名并执行请求</span>
+        <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            response <span class="token operator">=</span> wxPayClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>httpPost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 4.解析response对象</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>resultMap <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// native请求返回的是二维码链接，前端将链接转换成二维码即可</span>
+            <span class="token keyword">return</span> resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;code_url&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * 创建微信支付订单-jsapi方式
+     *
+     * @param wxPayConfig 微信配置信息
+     * @param basePayData 基础请求信息，商品标题、商家订单id、订单价格
+     * @param openId 通过微信小程序或者公众号获取到用户的openId
+     * @param wxPayClient 微信请求客户端（）
+     * @return 微信支付二维码地址
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">wxJsApiPay</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">,</span> <span class="token class-name">String</span> openId<span class="token punctuation">,</span><span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.获取请求参数的Map格式</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> basePayData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 1.1 添加支付者信息</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> payerMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        payerMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;openid&quot;</span><span class="token punctuation">,</span>openId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;payer&quot;</span><span class="token punctuation">,</span>payerMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2.获取请求对象</span>
+        <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span><span class="token punctuation">.</span>JSAPI_PAY<span class="token punctuation">,</span> paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3.完成签名并执行请求</span>
+        <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            response <span class="token operator">=</span> wxPayClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>httpPost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 4.解析response对象</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>resultMap <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// native请求返回的是二维码链接，前端将链接转换成二维码即可</span>
+            <span class="token keyword">return</span> resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;prepay_id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * 创建微信支付订单-APP方式
+     *
+     * @param wxPayConfig 微信配置信息
+     * @param basePayData 基础请求信息，商品标题、商家订单id、订单价格
+     * @param wxPayClient 微信请求客户端（）
+     * @return 微信支付二维码地址
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">wxAppPay</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">,</span> <span class="token class-name">CloseableHttpClient</span> wxPayClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.获取请求参数的Map格式</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> basePayData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2.获取请求对象</span>
+        <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span><span class="token punctuation">.</span>APP_PAY<span class="token punctuation">,</span> paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3.完成签名并执行请求</span>
+        <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            response <span class="token operator">=</span> wxPayClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>httpPost<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 4.解析response对象</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>resultMap <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// native请求返回的是二维码链接，前端将链接转换成二维码即可</span>
+            <span class="token keyword">return</span> resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;prepay_id&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 解析响应数据
+     * @param response 发送请求成功后，返回的数据
+     * @return 微信返回的参数
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">resolverResponse</span><span class="token punctuation">(</span><span class="token class-name">CloseableHttpResponse</span> response<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 1.获取请求码</span>
+            <span class="token keyword">int</span> statusCode <span class="token operator">=</span> response<span class="token punctuation">.</span><span class="token function">getStatusLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getStatusCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 2.获取返回值 String 格式</span>
+            <span class="token keyword">final</span> <span class="token class-name">String</span> bodyAsString <span class="token operator">=</span> <span class="token class-name">EntityUtils</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token class-name">Gson</span> gson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Gson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>statusCode <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 3.如果请求成功则解析成Map对象返回</span>
+                <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> gson<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>bodyAsString<span class="token punctuation">,</span> <span class="token class-name">HashMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> resultMap<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isNoneBlank</span><span class="token punctuation">(</span>bodyAsString<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败，提示信息:{}&quot;</span><span class="token punctuation">,</span> bodyAsString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token comment">// 4.请求码显示失败，则尝试获取提示信息</span>
+                    <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> resultMap <span class="token operator">=</span> gson<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span>bodyAsString<span class="token punctuation">,</span> <span class="token class-name">HashMap</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span>resultMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;message&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                log<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">&quot;微信支付请求失败，未查询到原因，提示信息:{}&quot;</span><span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 其他异常，微信也没有返回数据，这就需要具体排查了</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IOException</span><span class="token punctuation">(</span><span class="token string">&quot;request failed&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">DefaultException</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">getMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                response<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token comment">/**
+     * 获取请求对象（Post请求）
+     *
+     * @param wxPayConfig 微信配置类
+     * @param apiType     接口请求地址
+     * @param paramsMap   请求参数
+     * @return Post请求对象
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">HttpPost</span> <span class="token function">getHttpPost</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WxApiType</span> apiType<span class="token punctuation">,</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1.设置请求地址</span>
+        <span class="token class-name">HttpPost</span> httpPost <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpPost</span><span class="token punctuation">(</span>wxPayConfig<span class="token punctuation">.</span><span class="token function">getDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>apiType<span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 2.设置请求数据</span>
+        <span class="token class-name">Gson</span> gson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Gson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> jsonParams <span class="token operator">=</span> gson<span class="token punctuation">.</span><span class="token function">toJson</span><span class="token punctuation">(</span>paramsMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 3.设置请求信息</span>
+        <span class="token class-name">StringEntity</span> entity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringEntity</span><span class="token punctuation">(</span>jsonParams<span class="token punctuation">,</span> <span class="token string">&quot;utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        entity<span class="token punctuation">.</span><span class="token function">setContentType</span><span class="token punctuation">(</span><span class="token string">&quot;application/json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        httpPost<span class="token punctuation">.</span><span class="token function">setEntity</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        httpPost<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">&quot;Accept&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;application/json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> httpPost<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * 封装基础通用请求参数
+     *
+     * @param wxPayConfig 微信的配置文件
+     * @param basePayData 微信支付基础请求数据
+     * @return 封装后的map对象
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> <span class="token function">getBasePayParams</span><span class="token punctuation">(</span><span class="token class-name">WxPayConfig</span> wxPayConfig<span class="token punctuation">,</span> <span class="token class-name">WeChatBasePayData</span> basePayData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">&gt;</span></span> paramsMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;appid&quot;</span><span class="token punctuation">,</span> wxPayConfig<span class="token punctuation">.</span><span class="token function">getAppid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;mchid&quot;</span><span class="token punctuation">,</span> wxPayConfig<span class="token punctuation">.</span><span class="token function">getMchId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 如果商品名称过长则截取</span>
+        <span class="token class-name">String</span> title <span class="token operator">=</span> basePayData<span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">62</span> <span class="token operator">?</span> basePayData<span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">62</span><span class="token punctuation">)</span> <span class="token operator">:</span> basePayData<span class="token punctuation">.</span><span class="token function">getTitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;description&quot;</span><span class="token punctuation">,</span> title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;out_trade_no&quot;</span><span class="token punctuation">,</span> basePayData<span class="token punctuation">.</span><span class="token function">getOrderId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;notify_url&quot;</span><span class="token punctuation">,</span> wxPayConfig<span class="token punctuation">.</span><span class="token function">getNotifyDomain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>basePayData<span class="token punctuation">.</span><span class="token function">getNotify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> amountMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        amountMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;total&quot;</span><span class="token punctuation">,</span> basePayData<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token string">&quot;100&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        paramsMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;amount&quot;</span><span class="token punctuation">,</span> amountMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> paramsMap<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">4 天前</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/后端开发/第三方支付/微信支付V3/微信支付之创建订单准备操作.html" class="prev">
+          订单创建准备操作
+        </a></span> <span class="next"><a href="/后端开发/第三方支付/微信支付V3/微信支付成功回调.html">
+          微信支付成功回调
+        </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:0;" data-v-ac050c62></ul></main></div> <!----></div></div></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.2efc3365.js" defer></script><script src="/assets/js/4.a8f326f7.js" defer></script><script src="/assets/js/1.8aa3fbce.js" defer></script><script src="/assets/js/118.39b2b9b3.js" defer></script>
+  </body>
+</html>
