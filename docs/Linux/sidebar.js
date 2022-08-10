@@ -14,6 +14,7 @@ module.exports = [
       "/Linux/shell/Shell编程入门与基础语法",
       "/Linux/shell/Shell输出语句与参数传递",
       "/Linux/shell/Shell中的运算符与文件检测",
+      "/Linux/shell/流程控制、循环语句",
     ]
   }
 ]
