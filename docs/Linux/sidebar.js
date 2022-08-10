@@ -13,6 +13,7 @@ module.exports = [
     children: [
       "/Linux/docker/Docker安装与环境安装",
       "/Linux/docker/Docker常用命令合集",
+      "/Linux/docker/容器的复制与挂载",
     ]
   },{
     title: "Shell编程",
