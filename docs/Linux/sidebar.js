@@ -11,7 +11,8 @@ module.exports = [
     title: "Shell编程",
     collapsable: false,
     children: [
-      "/Linux/shell/Shell编程入门与基础语法"
+      "/Linux/shell/Shell编程入门与基础语法",
+      "/Linux/shell/Shell输出语句与参数传递",
     ]
   }
 ]
