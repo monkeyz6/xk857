@@ -12,7 +12,7 @@ Dockerfile 是一个文本文件，其内包含了一条条的指令(Instruction
 <!-- more -->
 dockerHub官网：[Docker Hub](https://hub.docker.com/)
 常用命令如下：
-- **FROM：**基于哪个镜像
+- **FROM**：基于哪个镜像
 - **MAINTAINER**：注明作者
 - **COPY**：复制文件进入镜像（只能用相对路径，不能用绝对路径）
 - **ADD**：复制文件进入镜像（假如文件是.tar.gz文件会解压）

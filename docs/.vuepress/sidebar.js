@@ -10,5 +10,6 @@ module.exports = {
   '/Spring专栏/': require('../Spring专栏/sidebar.js'),
   '/插件开发/': require('../插件开发/sidebar.js'),
   '/微服务/': require('../微服务/sidebar.js'),
+  '/Linux/': require('../Linux/sidebar.js'),
 }
 
