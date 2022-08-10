@@ -8,7 +8,7 @@ module.exports = [
       "/Linux/Centos7/vim编辑器使用指南",
     ]
   },{
-    title: "容器化部署之Docker",
+    title: "容器化运维部署之Docker",
     collapsable: false,
     children: [
       "/Linux/docker/Docker安装与环境安装",

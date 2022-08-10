@@ -2,10 +2,10 @@
 title: Docker常用命令合集
 date: 2020-11-10 16:04
 categories:
-- Shell脚本
+- docker
 tags:
 - Linux
-- Shell脚本
+- docker
 ---
 
 嫌手册查找麻烦，教程查询啰嗦？来看看整理好的命令吧

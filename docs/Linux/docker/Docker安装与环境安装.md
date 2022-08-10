@@ -2,10 +2,10 @@
 title: Docker安装与环境安装
 date: 2020-11-10 16:01
 categories:
-- Shell脚本
+- docker
 tags:
 - Linux
-- Shell脚本
+- docker
 ---
 
 在Centos7上配置使用环境与安装docker，并设置Docker下载镜像地址为阿里云镜像，以及Nginx部署案例
