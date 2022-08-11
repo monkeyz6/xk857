@@ -77,9 +77,12 @@ Centos7关闭防火墙  systemctl stop firewalld
 
 
 其他错误:
-::: tip
+
 https://blog.csdn.net/qq_14853889/article/details/81053145
+
 https://blog.csdn.net/wangmx1993328/article/details/81588217#%E5%BC%82%E5%B8%B8%E8%AF%B4%E6%98%8E
+
 https://www.jianshu.com/p/bfd6d849f156
+
 https://blog.csdn.net/wangmx1993328/article/details/81588217
-:::
+![home.png](https://oss.xk857.com/images/20220811/home.png)
