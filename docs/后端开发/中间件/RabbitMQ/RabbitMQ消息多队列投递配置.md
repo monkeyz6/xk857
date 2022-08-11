@@ -96,7 +96,7 @@ public class RabbitMQ2Config {
 
 发送消息是如何发送的呢？我们需要将消息发送到指定的交换机即可。
 
-```java
+```java {10}
 @SpringBootTest
 class RabbitmqDemoApplicationTests {
 
