@@ -1,5 +1,5 @@
 ---
-title: RocketMQ入门实战
+title: RocketMQ入门实战之发送消息
 date: 2021-07-31 19:57
 categories:
 - 中间件
@@ -11,7 +11,7 @@ tags:
 - 中间件
 ---
 
-在SpringBoot框架中，通过发送消息、接收消息使用RocketMQ消息队列，模拟真实业务开发场景，还包含了常见错误及其解决方案。
+在SpringBoot框架中，使用RockerMQ发送消息，模拟真实业务开发场景，而不是官方demo，可以直接按照此文档整合到项目中去。
 
 <!-- more -->
 

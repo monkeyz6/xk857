@@ -3,32 +3,32 @@ module.exports = [
   {
     text: 'Java', icon: 'iconfont icon-JavaCorefenxigongju', items: [
       {
+        text: '常用框架锦集',
+        icon: 'iconfont icon-shujuku',
+        link: '/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus'
+      }, {
         text: 'java开发技巧',
         icon: 'iconfont icon-java',
         link: '/后端开发/java/java高效编程常用技术优化手段/资源关闭优化方案'
-      }, {
-        text: '消息队列专栏',
-        icon: 'iconfont icon-xiaoxiduilie',
-        link: '/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题'
       }, {
         text: 'Redis专栏',
         icon: 'iconfont icon-Redis',
         link: '/后端开发/redis专栏/高阶使用技巧/Redis概述及基本使用'
       }, {
+        text: '消息队列专栏',
+        icon: 'iconfont icon-xiaoxiduilie',
+        link: '/后端开发/中间件/RabbitMQ/主流的消息队列和选择问题'
+      }, {
         text: '第三方支付',
         icon: 'iconfont icon-weixinzhifu',
         link: '/后端开发/第三方支付/微信支付V3/微信支付准备工作'
       }, {
-        text: '常用框架',
-        icon: 'iconfont icon-shujuku',
-        link: '/后端开发/常用框架/MybatisPlus/SpringBoot整合MybatisPlus'
-      }, {
-        text: 'Spring专栏',
+        text: 'SpringBoot',
         icon: 'iconfont icon-Leaf',
         link: '/Spring专栏/SpringBoot使用技巧/面向切面编程AOP'
       },
       {
-        text: '微服务专栏',
+        text: 'SpringCloud',
         icon: 'iconfont icon-mseweifuwuyinqing',
         link: '/微服务/SpringCloudAlibaba/分布式架构理论'
       },

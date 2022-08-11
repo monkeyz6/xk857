@@ -16,7 +16,9 @@ module.exports = [
     children: [
       "/后端开发/中间件/RocketMQ/常见概念和编程模型",
       "/后端开发/中间件/RocketMQ/RocketMQ源码方式安装",
-      "/后端开发/中间件/RocketMQ/RocketMQ入门实战",
+      "/后端开发/中间件/RocketMQ/RocketMQ入门实战之发送消息",
+      "/后端开发/中间件/RocketMQ/RocketMQ发送消息常见错误",
+      "/后端开发/中间件/RocketMQ/RocketMQ入门实战之接收消息",
       "/后端开发/中间件/RocketMQ/核心配置及发送状态",
       "/后端开发/中间件/RocketMQ/生产和消费消息重试及处理",
       "/后端开发/中间件/RocketMQ/异步发送消息和回调",
