@@ -11,6 +11,7 @@ module.exports = [
       "/后端开发/中间件/RabbitMQ/RabbitMQ消息确认机制ACK",
       "/后端开发/中间件/RabbitMQ/当前配置下处理业务逻辑的思考",
       "/后端开发/中间件/RabbitMQ/RabbitMQ消息多队列投递配置",
+      "/后端开发/中间件/RabbitMQ/RabbitMQ实现延时队列",
     ]
   },
   {
