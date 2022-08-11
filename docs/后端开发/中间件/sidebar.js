@@ -9,6 +9,7 @@ module.exports = [
       "/后端开发/中间件/RabbitMQ/发送消息与接收消息",
       "/后端开发/中间件/RabbitMQ/RabbitMQ消息可靠性投递",
       "/后端开发/中间件/RabbitMQ/RabbitMQ消息确认机制ACK",
+      "/后端开发/中间件/RabbitMQ/当前配置下处理业务逻辑的思考",
     ]
   },
   {
