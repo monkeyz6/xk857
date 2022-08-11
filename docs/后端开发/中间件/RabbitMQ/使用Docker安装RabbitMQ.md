@@ -2,9 +2,10 @@
 title: 使用Docker安装RabbitMQ
 date: 2021-07-31 19:36
 categories:
-- 中间件
+- SpringBoot
+- RabbitMQ
 tags:
-- 消息队列
+- SpringBoot
 - RabbitMQ
 - 中间件
 ---

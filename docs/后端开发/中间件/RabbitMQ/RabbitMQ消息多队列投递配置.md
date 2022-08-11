@@ -2,10 +2,12 @@
 title: RabbitMQ消息多队列投递配置
 date: 2022-01-13 17:17
 categories:
-- Shell脚本
+- SpringBoot
+- RabbitMQ
 tags:
-- Linux
-- Shell脚本
+- SpringBoot
+- RabbitMQ
+- 中间件
 ---
 
 当我们需要再SpringBoot项目中，需要投递消息到不同的队列中去，此时的MQ配置文件该如何编写呢？只改变队列名称和交换机名称可行吗？

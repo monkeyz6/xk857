@@ -2,10 +2,12 @@
 title: RabbitMQ消息确认机制ACK
 date: 2022-01-13 17:15
 categories:
-- Shell脚本
+- SpringBoot
+- RabbitMQ
 tags:
-- Linux
-- Shell脚本
+- SpringBoot
+- RabbitMQ
+- 中间件
 ---
 
 消费者从RabbitMQ收到消息并处理完成后，反馈给RabbitMQ，RabbitMQ收到反馈后才将此消息从队列中删除
