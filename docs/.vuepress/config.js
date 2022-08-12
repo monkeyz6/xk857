@@ -50,11 +50,11 @@ module.exports = {
       color: "#3eaf7c",
       backgroundColor: "#d8efe5"
     }],
-    '@vuepress/active-header-links', {sidebarLinkSelector: '.sidebar-link', headerAnchorSelector: '.header-anchor'},
-    '@vuepress/back-to-top',
-    '@vuepress/last-updated',
-    '@vuepress/search', {searchMaxSuggestions: 10},
-    '@vuepress-reco/extract-code',
+    ['@vuepress/active-header-links', {sidebarLinkSelector: '.sidebar-link', headerAnchorSelector: '.header-anchor'}],
+    ['@vuepress/back-to-top'],
+    ['@vuepress/last-updated'],
+    ['@vuepress/search', {searchMaxSuggestions: 10}],
+    ['@vuepress-reco/extract-code'],
     ['@vuepress/last-updated', {
       transformer: (timestamp) => {
         // 不要忘了安装 moment
@@ -63,5 +63,16 @@ module.exports = {
         return moment(timestamp).fromNow()
       }
     }],
+    [
+      'vuepress-plugin-comment', {
+        choosen: 'valine',
+        // options选项中的所有参数，会传给Valine的配置
+        options: {
+          el: '#valine-vuepress-comment',
+          appId: 'UdAhhnSzFfnsBzA22zoT6BaF-gzGzoHsz',
+          appKey: 'z3p2CHOsy3LCfqJqpzrWQtPN'
+        }
+      }
+    ]
   ]
 }
