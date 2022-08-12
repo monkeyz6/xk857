@@ -62,17 +62,6 @@ module.exports = {
         moment.locale('zh-CN')
         return moment(timestamp).fromNow()
       }
-    }],
-    [
-      'vuepress-plugin-comment', {
-        choosen: 'valine',
-        // options选项中的所有参数，会传给Valine的配置
-        options: {
-          el: '#valine-vuepress-comment',
-          appId: 'UdAhhnSzFfnsBzA22zoT6BaF-gzGzoHsz',
-          appKey: 'z3p2CHOsy3LCfqJqpzrWQtPN'
-        }
-      }
-    ]
+    }]
   ]
 }
